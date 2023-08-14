@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PlaceMiddleware
+class CustomerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class PlaceMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && \auth()->user()->role == Enum::PLACE)
+        if(Auth::check() && \auth()->user()->role == Enum::CUSTOMER)
                  return $next($request);
              return abort(403);
     }
