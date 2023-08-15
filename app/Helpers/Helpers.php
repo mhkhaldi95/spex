@@ -92,6 +92,13 @@ function uploadFile($request,$folder_name,$feild='file'){
         return $imageName;
     }
 }
+function uploadFile2($file,$folder_name){
+    if($file){
+        $imageName = time().rand(1,100).'.'.$file->getClientOriginalExtension();
+        $file->storeAs('public/'.$folder_name, $imageName);
+        return $imageName;
+    }
+}
 function convertTagsObjectToString($tags){
     $tags_str = '';
        $tags =  array_column(json_decode($tags),'value');

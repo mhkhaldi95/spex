@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Constants\Enum;
+use App\Models\Brand;
+use App\Models\Collection;
 use App\Models\Constant;
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
@@ -31,12 +33,29 @@ class DatabaseSeeder extends Seeder
             ["key" => 'site_icon', "value_ar" => '', "value_en" => 'icon_site.png'],
             ["key" => 'tags', "value_ar" => '', "value_en" => ''],
 
-
-
         ];
 
-        foreach ($data as $row) {
-            Setting::query()->create($row);
-        }
+        $brands = [
+            ['name' => 'brand1'],
+            ['name' => 'brand2'],
+            ['name' => 'brand3'],
+        ];
+        $collections = [
+            ['name' => 'collection1' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection2' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection3' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection4' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection5' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection6' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection7' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection8' ,'brand_id'=> rand(1,3)],
+            ['name' => 'collection9' ,'brand_id'=> rand(1,3)],
+        ];
+
+
+        Setting::query()->insert($data);
+        Brand::query()->insert($brands);
+        Collection::query()->insert($collections);
+
     }
 }

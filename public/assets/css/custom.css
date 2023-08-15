@@ -1,11 +1,12 @@
 /*@font-face {*/
 /*    font-family: myFirstFont;*/
-/*    src: url(../fonts/cairo/Cairo-Bold.woff2);*/
-/*    !*src: url(../fonts/IBM_Plex_Sans_Arabic/IBMPlexSansArabic-Regular.ttf);*!*/
+/*    !*src: url(../fonts/cairo/Cairo-Bold.woff2);*!*/
+/*    src: url(../fonts/IBM_Plex_Sans_Arabic/IBMPlexSansArabic-Regular.ttf);*/
 
 /*}*/
 * {
-    font-family: myFirstFont;
+    font-family: Poppins, Helvetica, "sans-serif" !important;
+    font-size: 15px !important;
 }
 .image-input [data-action=make-master]{
     position: absolute;

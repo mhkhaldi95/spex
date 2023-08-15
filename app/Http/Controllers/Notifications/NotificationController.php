@@ -7,7 +7,7 @@ use App\Constants\StatusCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Trips\TripRequest;
 use App\Http\Resources\NotificationResource;
-use App\Http\Resources\Trips\TripResource;
+use App\Http\Resources\Products\TripResource;
 use App\Models\Constant;
 use App\Models\Notification;
 use App\Models\Trip;

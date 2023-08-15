@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Constant\ConstantController;
 use App\Http\Controllers\Notifications\NotificationController;
+use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\StartEndTimeController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\Trips\TripController;
@@ -65,6 +66,31 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('{id}/delete', [CustomerController::class, 'delete'])->name('customers.delete');
             Route::get('{id}/trips', [CustomerController::class, 'trips'])->name('customers.trips');
 
+        });
+
+
+        Route::group(['prefix' => 'brands'], function () {
+            Route::get('/', [ProductController::class, 'index'])->name('brands.index');
+            Route::get('/create/{id?}', [ProductController::class, 'create'])->name('brands.create');
+            Route::post('/store/{id?}', [ProductController::class, 'store'])->name('brands.store');
+            Route::post('{id}/delete', [ProductController::class, 'delete'])->name('brands.delete');
+        });
+
+        Route::group(['prefix' => 'collections'], function () {
+            Route::get('/', [ProductController::class, 'index'])->name('collections.index');
+            Route::get('/create/{id?}', [ProductController::class, 'create'])->name('collections.create');
+            Route::post('/store/{id?}', [ProductController::class, 'store'])->name('collections.store');
+            Route::post('{id}/delete', [ProductController::class, 'delete'])->name('collections.delete');
+        });
+
+        Route::group(['prefix' => 'products'], function () {
+            Route::get('/', [ProductController::class, 'index'])->name('products.index');
+            Route::get('/create/{id?}', [ProductController::class, 'create'])->name('products.create');
+            Route::post('/store/{id?}', [ProductController::class, 'store'])->name('products.store');
+            Route::post('{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
+            Route::post('delete-selected', [ProductController::class, 'deleteSelected'])->name('products.deleteSelected');
+            Route::post('upload-image', [ProductController::class, 'uploadImages'])->name('products.upload.image');
+            Route::post('remove-image', [ProductController::class, 'removeImage'])->name('products.remove.image');
         });
 
 

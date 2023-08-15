@@ -47,7 +47,7 @@
                                 <!--begin::Input group-->
                                 <div class="col-4 mb-10">
                                     <!--begin::Label-->
-                                    <label class=" fw-semibold fs-6 mb-2">Name</label>
+                                    <label class=" fw-semibold  mb-2">Name</label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
@@ -60,7 +60,7 @@
                                 <!--begin::Input group-->
                                 <div class="col-4 mb-10">
                                     <!--begin::Label-->
-                                    <label class=" fw-semibold fs-6 mb-2">{{__('phone')}}</label>
+                                    <label class=" fw-semibold  mb-2">{{__('phone')}}</label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
@@ -73,7 +73,7 @@
                                 <!--begin::Input group-->
                                 <div class="col-4 mb-10">
                                     <!--begin::Label-->
-                                    <label class=" fw-semibold fs-6 mb-2">Email</label>
+                                    <label class=" fw-semibold  mb-2">Email</label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
@@ -91,7 +91,7 @@
                                 <!--begin::Input group-->
                                 <div class="col-6 mb-10">
                                     <!--begin::Label-->
-                                    <label class=" fw-semibold fs-6 mb-2">{{__('password')}}</label>
+                                    <label class=" fw-semibold  mb-2">{{__('password')}}</label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
@@ -104,7 +104,7 @@
                                 <!--begin::Input group-->
                                 <div class="col-6 mb-10">
                                     <!--begin::Label-->
-                                    <label class="fw-semibold fs-6 mb-2">Password Confirmation</label>
+                                    <label class="fw-semibold  mb-2">Password Confirmation</label>
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
