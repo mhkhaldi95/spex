@@ -53,6 +53,42 @@
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
                     <div class="menu-item">
                         <div class="menu-content pb-2">
+                            <span class=" text-muted text-uppercase fs-8 ls-1">Products Management</span>
+                        </div>
+                    </div>
+                    <div class="menu-sub menu-sub-accordion show">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
+												<span class="menu-title">Products</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('products.index')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">All</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('products.create')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">Add</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+                    <div class="menu-item">
+                        <div class="menu-content pb-2">
                             <span class=" text-muted text-uppercase fs-8 ls-1">{{__('user_management')}}</span>
                         </div>
                     </div>

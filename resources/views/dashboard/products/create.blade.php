@@ -75,19 +75,22 @@
                             </div>
                             <!--end::Card title-->
                             <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-{{isset($item)?$item['status'] == \App\Constants\Enum::PUBLISHED?'success':'danger':'success'}} w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
-                            </div>
+
                             <!--begin::Card toolbar-->
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"  name="status" data-placeholder="{{__('lang.Select an option')}}" id="kt_ecommerce_add_product_status_select">
+
+
+                            <select class="form-select form-select-solid  w-250px fw-bolder "
+                                    data-kt-select2="true" data-placeholder="Status" name="status"
+                                    data-allow-clear="true" id="status_filter">
                                 <option></option>
                                 <option value="{{\App\Constants\Enum::PUBLISHED}}" {{isset($item)?$item['status'] == \App\Constants\Enum::PUBLISHED?'selected':'':''}}>{{__('lang.Published')}}</option>
                                 <option value="{{\App\Constants\Enum::INACTIVE}}" {{isset($item)?$item['status'] == \App\Constants\Enum::INACTIVE?'selected':'':''}}>{{__('lang.Inactive')}}</option>
+
                             </select>
                             <!--end::Select2-->
                         </div>

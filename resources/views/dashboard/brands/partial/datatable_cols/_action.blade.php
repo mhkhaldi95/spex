@@ -1,6 +1,5 @@
-
 <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-    {{__('lang.actions')}}
+    {{__('actions')}}
     <span class="svg-icon svg-icon-5 m-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -14,24 +13,18 @@
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-        <a href="{{route('products.create',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
-            {{__('lang.Edit')}}
+        <a href="{{route('customers.create',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
+            {{__('Edit')}}
         </a>
     </div>
     <!--end::Menu item-->
 
+    <!--begin::Menu item-->
     <div class="menu-item px-3">
-        @if(!$item->is_deleted)
-        <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-            {{__('lang.Delete')}}
+        <a href="#" class="menu-link px-3" data-id="{{$item->id}}" data-kt-docs-table-filter="{{$item->is_deleted?'cancel_delete_row':'delete_row'}}" id="{{$item->is_deleted?'cancel_delete_row':'delete_row'}}">
+            {{$item->is_deleted?'Cancel Delete':__('Delete')}}
         </a>
-        @else
-            <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-               Cancel Delete
-            </a>
-        @endif
     </div>
-
-
-
+    <!--end::Menu item-->
 </div>
+<!--end::Menu-->

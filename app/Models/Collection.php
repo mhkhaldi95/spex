@@ -14,4 +14,8 @@ class Collection extends Model
     public function scopeFilter($q){
         return $q;
     }
+
+    public function scopeActive($q){
+        $q->where('is_deleted',0);
+    }
 }

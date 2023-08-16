@@ -37,6 +37,7 @@ class ProductController extends Controller
         return view('dashboard.products.index', [
             'page_title' =>__('lang.products'),
             'page_breadcrumbs' => $page_breadcrumbs,
+            'collections' => Collection::query()->active()->get(),
         ]);
     }
     public function create($id = null)
@@ -126,7 +127,9 @@ class ProductController extends Controller
         } catch (QueryException $exception) {
             return $this->invalidIntParameter();
         }
-        $item->delete();
+        $item->update([
+            'is_deleted' => !$item->is_deleted
+        ]);
         if($item){
             return $this->response_json(true, StatusCodes::OK, 'delete done');
 

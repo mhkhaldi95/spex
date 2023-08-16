@@ -88,7 +88,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/create/{id?}', [ProductController::class, 'create'])->name('products.create');
             Route::post('/store/{id?}', [ProductController::class, 'store'])->name('products.store');
             Route::post('{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
-            Route::post('delete-selected', [ProductController::class, 'deleteSelected'])->name('products.deleteSelected');
             Route::post('upload-image', [ProductController::class, 'uploadImages'])->name('products.upload.image');
             Route::post('remove-image', [ProductController::class, 'removeImage'])->name('products.remove.image');
         });

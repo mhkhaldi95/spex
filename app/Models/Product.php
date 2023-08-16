@@ -14,38 +14,42 @@ class Product extends Model
 
     protected $fillable = self::FILLABLE;
     protected $appends =['avatar','price_after_discount'];
-    public function scopeFilter($q){
 
-        if(!Auth::check() || Auth::user()->role == Enum::CUSTOMER){
-            $col = 'search';
-            $value = @request('search');
-            $q->where("status",Enum::PUBLISHED); // show just PUBLISHED for customers
-        }else{
-            $col = @request('search')['regex'];
-            $value = @request('search')['value'];
-        }
-        if($col == 'search'){
-            $q->when(true,function ($qq) use ($value){
-                $qq->orWhere('name','like',"%$value%")
-                    ->orWhere('description','like',"%$value%")
-                    ->orWhere('tags','like',"%$value%");
-            });
-
+    public function scopeFilter($q)
+    {
+        // special for filter dashboard -- start
+        $searchParams = [];
+        if(request('search') && !is_null(request('search')['value'])){
+            $searchParams = json_decode(request('search')['value'], true);
         }
 
-        if($col == 'status' && $value !=''){
-            return $q->where("status",$value);
+        foreach ($searchParams as $column => $value) {
+            if ($value !== '') {
+                switch ($column) {
+                    case 'search':
+                        $q->where('name','like',"%$value%")
+                            ->orWhere('description','like',"%$value%")
+                            ->orWhere('tags','like',"%$value%");
+                        break;
+                    case 'collection_id':
+                        $q->where('collection_id', $value);
+                        break;
+                    case 'status':
+                        $q->where('status', $value);
+                        break;
+                    // Add additional cases for other columns if needed
+                }
+            }
         }
-        if(request('brand_id') && !empty(request('brand_id'))){
-            return $q->where("brand_id",request('brand_id'));
-        }
+        // special for filter dashboard -- end
+
         return $q;
     }
     public function scopePublished($q){
         $q->where('status',Enum::PUBLISHED);
     }
 
-    public function active($q){
+    public function scopeActive($q){
         $q->where('is_deleted',0);
     }
 

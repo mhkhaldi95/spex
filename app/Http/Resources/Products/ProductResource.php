@@ -16,28 +16,17 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => view('dashboard.products.partial.datatable_cols._id',[
-                'item' => $this
-            ])->render(),
-            'name' => view('dashboard.products.partial.datatable_cols._name',[
-                'item' => $this
-            ])->render(),
-            'descriptiion' => $this->descriptiion,
-            'price' =>  view('dashboard.products.partial.datatable_cols._price',[
-                'item' => $this
-            ])->render(),
-            'avatar' => $this->avatar,
-            'category' => @$this->category->name,
-            'actions' => view('dashboard.products.partial.datatable_cols._action',[
-                'item' => $this
-            ])->render(),
-            'status' => view('dashboard.products.partial.datatable_cols._status',[
-                'item' => $this
-            ])->render(),
-            'price_after_discount' => $this->price_after_discount == $this->price? $this->price:$this->price_after_discount,
+        $data = parent::toArray($request);
+        $data['id'] =  view('dashboard.products.partial.datatable_cols._id',['item' => $this])->render();
+        $data['name'] =  view('dashboard.products.partial.datatable_cols._name',['item' => $this])->render();
+        $data['avatar'] =   $this->avatar;
+        $data['collection'] =  view('dashboard.products.partial.datatable_cols._collection',['item' => $this])->render();;
+        $data['created_at'] = Carbon::parse($data['created_at'])->setTimezone('Asia/Gaza')->format('Y-m-d H:i:s');
+        $data['actions'] =  view('dashboard.products.partial.datatable_cols._action',['item' => $this])->render();
+        $data['status'] =  view('dashboard.products.partial.datatable_cols._status',['item' => $this])->render();
+        $data['check_delete'] =  view('dashboard.products.partial.datatable_cols._check_delete',['item' => $this])->render();
+        return  $data;
 
-        ];
     }
     public function toShow(){
         return [
