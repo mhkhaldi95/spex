@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Collection extends Model
 {
     use HasFactory;
-    const FILLABLE = ['name','brand_id','is_deleted'];
+    const FILLABLE = ['name','image','description','brand_id','is_deleted'];
 
     protected $fillable = self::FILLABLE;
     public function scopeFilter($q){
@@ -43,5 +43,13 @@ class Collection extends Model
 
     public function scopeActive($q){
         $q->where('is_deleted',0);
+    }
+
+    public function getImageAttribute($value)
+    {
+        if ($value == 'default.png') {
+            return asset('assets/media/default.png');
+        }
+        return asset('storage/collections-image/' . $value);
     }
 }

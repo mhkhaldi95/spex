@@ -1,5 +1,9 @@
+
+
 <div class="d-flex align-items-center text-end">
-    <!--begin::Thumbnail-->
+    <a href="#" class="symbol symbol-50px">
+        <span class="symbol-label" style="background-image:url({{$item->image}});"></span>
+    </a>
     <!--end::Thumbnail-->
     <div class="ms-5">
         <!--begin::Title-->
@@ -7,3 +11,4 @@
         <!--end::Title-->
     </div>
 </div>
+

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('image')->default('default.png');
             $table->foreignId('brand_id')->nullable()->constrained('brands');
             $table->tinyInteger('is_deleted')->default(0);
             $table->timestamps();

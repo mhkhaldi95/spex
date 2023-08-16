@@ -34,6 +34,36 @@
                             @csrf
 
                             <div class="row">
+                                <div class="col-12">
+                                    <!--begin::Image input-->
+
+                                    <div class="image-input image-input-empty image-input-outline mb-3" id="avatar" data-kt-image-input="true"
+                                         style="background-image: url({{isset($item)?$item['image']:asset('assets/media/default.png')}})">
+                                        <!--begin::Preview existing avatar-->
+                                        <div class="image-input-wrapper w-150px h-150px"></div>
+                                        <!--end::Preview existing avatar-->
+                                        <!--begin::Label-->
+                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change Image">
+                                            <i class="bi bi-pencil-fill fs-7"></i>
+                                            <!--begin::Inputs-->
+                                            <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                            <input type="hidden" name="avatar_remove" />
+                                            <!--end::Inputs-->
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Cancel-->
+                                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel Image">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                        <!--end::Cancel-->
+                                        <!--begin::Remove-->
+                                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove Image">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                        <!--end::Remove-->
+                                    </div>
+                                    <!--end::Image input-->
+                                </div>
                                 <!--begin::Input group-->
                                 <div class="col-12 mb-10">
                                     <!--begin::Label-->
@@ -44,6 +74,17 @@
                                     <input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0"
                                            placeholder="Name" value="{{isset($item)?$item->name:old('name')}}"/>
                                     <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="col-12 mb-10">
+                                    <label class="form-label">Description</label>
+                                    <!--end::Label-->
+                                    <!--begin::Editor-->
+                                    <textarea class="form-control" name="description"  id="kt_ecommerce_add_product_description" rows="3">
+                                                    {{isset($item)?$item['description']:old('description')}}
+                                                </textarea>
+                                    <!--end::Editor-->
                                 </div>
                                 <!--end::Input group-->
 
@@ -79,7 +120,7 @@
 @endsection
 @section('scripts')
 
-
+    <script src="{{asset('')}}assets/js/custom/save-product.js"></script>
 
 
 @endsection

@@ -14,7 +14,7 @@
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-        <a href="{{route('brands.create',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
+        <a href="{{route('collections.create',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
             {{__('lang.Edit')}}
         </a>
     </div>
