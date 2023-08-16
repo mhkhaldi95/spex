@@ -40,7 +40,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/brands', function () {
+    return view('website.welcome');
+});
 
+Route::get('/collections', function () {
+    return view('website.collections');
+});
+
+Route::get('/products', function () {
+    return view('website.products');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
     Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
