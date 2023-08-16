@@ -11,6 +11,7 @@ use App\Http\Controllers\StartEndTimeController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\Trips\TripController;
 use App\Http\Controllers\PlaceDashboard\Trips\TripController as PlaceTripController;
+use App\Http\Controllers\UserManagement\Admins\AdminController;
 use App\Http\Controllers\UserManagement\Captains\CaptainController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PlaceDashboard\DashboardController as PlaceDashboardController;
@@ -62,12 +63,18 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('account/update-email', [AccountSettingsController::class, 'updateEmail'])->name('admins.account.update-email')->withoutMiddleware('admin');
         Route::post('account/update-password', [AccountSettingsController::class, 'updatePassword'])->name('admins.account.update-password')->withoutMiddleware('admin');
 
+        Route::group(['prefix' => 'admins'], function () {
+            Route::get('/', [AdminController::class, 'index'])->name('admins.index');
+            Route::get('/create/{id?}', [AdminController::class, 'create'])->name('admins.create');
+            Route::post('/store/{id?}', [AdminController::class, 'store'])->name('admins.store');
+            Route::post('{id}/delete', [AdminController::class, 'delete'])->name('admins.delete');
+
+        });
         Route::group(['prefix' => 'customers'], function () {
             Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
             Route::get('/create/{id?}', [CustomerController::class, 'create'])->name('customers.create');
             Route::post('/store/{id?}', [CustomerController::class, 'store'])->name('customers.store');
             Route::post('{id}/delete', [CustomerController::class, 'delete'])->name('customers.delete');
-            Route::get('{id}/trips', [CustomerController::class, 'trips'])->name('customers.trips');
 
         });
 

@@ -152,6 +152,35 @@
 												<span class="menu-bullet">
 													<span class="bullet "></span>
 												</span>
+												<span class="menu-title">Admins</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('admins.index')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">All</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('admins.create')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">Add</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="menu-sub menu-sub-accordion show">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
 												<span class="menu-title">Customers</span>
 												<span class="menu-arrow"></span>
 											</span>

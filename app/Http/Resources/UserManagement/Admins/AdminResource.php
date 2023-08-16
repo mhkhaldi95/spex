@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\UserManagement\Captains;
+namespace App\Http\Resources\UserManagement\Admins;
 
 use App\Constants\Enum;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CaptainResource extends JsonResource
+class AdminResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,20 +16,18 @@ class CaptainResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => view('user_management.captains.partial.datatable_cols._id',[
+            'id' => view('dashboard.user_management.admins.partial.datatable_cols._id',[
                 'item' => $this
             ])->render(),
-            'name' => view('user_management.captains.partial.datatable_cols._name',[
+            'name' => view('dashboard.user_management.admins.partial.datatable_cols._name',[
                 'item' => $this
             ])->render(),
-            'status' => view('user_management.captains.partial.datatable_cols._status',[
+            'status' => view('dashboard.user_management.admins.partial.datatable_cols._status',[
                 'item' => $this
             ])->render(),
-            'actions' => view('user_management.captains.partial.datatable_cols._action',[
+            'actions' => view('dashboard.user_management.admins.partial.datatable_cols._action',[
                 'item' => $this
             ])->render(),
-            'phone' => $this->phone,
-            'photo_path' => $this->photo_path,
         ];
     }
 

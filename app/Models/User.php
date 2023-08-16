@@ -67,6 +67,10 @@ class User extends Authenticatable
 
 
 
+    public function scopeAdmins($q)
+    {
+        return $q->where('role', Enum::ADMIN);
+    }
     public function scopeCustomers($q)
     {
         return $q->where('role', Enum::CUSTOMER);
