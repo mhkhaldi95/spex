@@ -15,7 +15,7 @@
                     <li class="nav-item ">
                         <a class="nav-link text-active-primary pb-4 active"
                            data-bs-toggle="tab"
-                           href="#kt_ecommerce_add_product_general">Brand Info </a>
+                           href="#kt_ecommerce_add_product_general">Collection Info </a>
                     </li>
                     <!--end:::Tab item-->
 
@@ -29,13 +29,32 @@
                         @include('dashboard.validation.alerts')
                         <!--begin::Form-->
                         <form id="kt_docs_formvalidation_text" class="form p-4" method="post"
-                              action="{{isset($item)?route('brands.store',['id'=>$item->id]):route('brands.store')}}"
+                              action="{{isset($item)?route('collections.store',['id'=>$item->id]):route('collections.store')}}"
                               autocomplete="off" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
                                 <!--begin::Input group-->
-                                <div class="col-12 mb-10">
+                                <div class="col-6 mb-10">
+                                    <!--begin::Label-->
+                                    <label class=" fw-semibold  mb-2">Brands</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select class="form-select form-select-solid   fw-bolder "
+                                            data-kt-select2="true" data-placeholder="Brands" name="brand_id"
+                                            data-allow-clear="true" id="brand_filter">
+                                        <option></option>
+                                        @foreach($brands as $brand)
+                                            <option value="{{$brand->id}}" {{isset($item)?($item->brand_id == $brand->id?'selected':''):''}}>{{$brand->name}}</option>
+                                        @endforeach
+
+
+                                    </select>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="col-6 mb-10">
                                     <!--begin::Label-->
                                     <label class=" fw-semibold  mb-2">Name</label>
                                     <!--end::Label-->

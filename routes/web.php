@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Brands\BrandController;
+use App\Http\Controllers\Collections\CollectionController;
 use App\Http\Controllers\Constant\ConstantController;
 use App\Http\Controllers\Notifications\NotificationController;
 use App\Http\Controllers\Products\ProductController;
+use App\Http\Controllers\Settings\SettingsController;
 use App\Http\Controllers\StartEndTimeController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\Trips\TripController;
@@ -70,17 +73,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
         Route::group(['prefix' => 'brands'], function () {
-            Route::get('/', [ProductController::class, 'index'])->name('brands.index');
-            Route::get('/create/{id?}', [ProductController::class, 'create'])->name('brands.create');
-            Route::post('/store/{id?}', [ProductController::class, 'store'])->name('brands.store');
-            Route::post('{id}/delete', [ProductController::class, 'delete'])->name('brands.delete');
+            Route::get('/', [BrandController::class, 'index'])->name('brands.index');
+            Route::get('/create/{id?}', [BrandController::class, 'create'])->name('brands.create');
+            Route::post('/store/{id?}', [BrandController::class, 'store'])->name('brands.store');
+            Route::post('{id}/delete', [BrandController::class, 'delete'])->name('brands.delete');
         });
 
         Route::group(['prefix' => 'collections'], function () {
-            Route::get('/', [ProductController::class, 'index'])->name('collections.index');
-            Route::get('/create/{id?}', [ProductController::class, 'create'])->name('collections.create');
-            Route::post('/store/{id?}', [ProductController::class, 'store'])->name('collections.store');
-            Route::post('{id}/delete', [ProductController::class, 'delete'])->name('collections.delete');
+            Route::get('/', [CollectionController::class, 'index'])->name('collections.index');
+            Route::get('/create/{id?}', [CollectionController::class, 'create'])->name('collections.create');
+            Route::post('/store/{id?}', [CollectionController::class, 'store'])->name('collections.store');
+            Route::post('{id}/delete', [CollectionController::class, 'delete'])->name('collections.delete');
         });
 
         Route::group(['prefix' => 'products'], function () {
@@ -90,6 +93,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
             Route::post('upload-image', [ProductController::class, 'uploadImages'])->name('products.upload.image');
             Route::post('remove-image', [ProductController::class, 'removeImage'])->name('products.remove.image');
+        });
+
+
+        Route::group(['prefix' => 'settings'], function () {
+            Route::get('/create/{id?}', [SettingsController::class, 'create'])->name('settings.create');
+            Route::post('/store/{id?}', [SettingsController::class, 'store'])->name('settings.store');
         });
 
 

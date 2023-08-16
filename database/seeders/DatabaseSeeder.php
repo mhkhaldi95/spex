@@ -28,10 +28,10 @@ class DatabaseSeeder extends Seeder
 
 
         $data = [
-            ["key" => 'site_name', "value_ar" => 'spex', "value_en" => 'spex'],
-            ["key" => 'site_description', "value_ar" => 'spex', "value_en" => 'spex'],
-            ["key" => 'site_icon', "value_ar" => '', "value_en" => 'icon_site.png'],
-            ["key" => 'tags', "value_ar" => '', "value_en" => ''],
+            ["key" => 'site_name', "value" => 'spex'],
+            ["key" => 'site_description', "value_ar" => 'spex'],
+            ["key" => 'site_icon', "value" => 'icon_site.png'],
+            ["key" => 'site_tags', "value" => ''],
 
         ];
 

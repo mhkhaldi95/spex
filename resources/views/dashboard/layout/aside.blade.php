@@ -84,12 +84,66 @@
                                         </div>
                                 </div>
                             </div>
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
+												<span class="menu-title">Brands</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('brands.index')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">All</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('brands.create')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">Add</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
+												<span class="menu-title">Collections</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('collections.index')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">All</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('collections.create')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">Add</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
                     <div class="menu-item">
                         <div class="menu-content pb-2">
-                            <span class=" text-muted text-uppercase fs-8 ls-1">{{__('user_management')}}</span>
+                            <span class=" text-muted text-uppercase fs-8 ls-1">User Management</span>
                         </div>
                     </div>
                     <div class="menu-sub menu-sub-accordion show">
@@ -116,6 +170,34 @@
 															<span class="bullet bullet-dot"></span>
 														</span>
                                                 <span class="menu-title">Add</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+                    <div class="menu-item">
+                        <div class="menu-content pb-2">
+                            <span class=" text-muted text-uppercase fs-8 ls-1">Site Management</span>
+                        </div>
+                    </div>
+                    <div class="menu-sub menu-sub-accordion show">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
+												<span class="menu-title">Settings</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('settings.create')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+                                                <span class="menu-title">Show</span>
                                             </a>
                                         </div>
                                 </div>

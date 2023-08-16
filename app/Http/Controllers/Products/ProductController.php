@@ -2,21 +2,14 @@
 
 namespace App\Http\Controllers\Products;
 
-use App\Constants\Enum;
 use App\Constants\StatusCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\ProductRequest;
-use App\Http\Resources\Orders\OrderResource;
 use App\Http\Resources\Products\ProductResource;
-use App\Models\Brand;
 use App\Models\Collection;
-use App\Models\Color;
-use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductVariants;
-use App\Models\StartEndTime;
-use App\Models\Trip;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

@@ -34,7 +34,7 @@
 
                         </div>
                         <!--begin::Add product-->
-                        <a href="{{route('brands.create')}}" class="btn btn-primary">Add Brand</a>
+                        <a href="{{route('collections.create')}}" class="btn btn-primary">Add Collection</a>
                         <!--end::Add product-->
                     </div>
                     <!--end::Card toolbar-->
@@ -54,7 +54,22 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-3 ">
+                                <!--begin::Input-->
+                                <select class="form-select form-select-solid  w-250px fw-bolder "
+                                        data-kt-select2="true" data-placeholder="Brands"
+                                        data-allow-clear="true" id="brand_filter">
+                                    <option></option>
+                                    @foreach($brands as $brand)
+                                     <option value="{{$brand->id}}" >{{$brand->name}}</option>
+                                    @endforeach
 
+
+                                </select>
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Col-->
+                            <!--begin::Col-->
+                            <div class="col-lg-3 ">
                                 <!--begin::Input-->
                                 <select class="form-select form-select-solid  w-250px fw-bolder "
                                         data-kt-select2="true" data-placeholder="Status"
@@ -103,6 +118,7 @@
                                 #
                             </th>
                             <th class="min-w-125px">Name</th>
+                            <th class="min-w-125px">Brand</th>
                             <th class="min-w-125px"> Status</th>
                             <th class="text-end min-w-70px">{{__('lang.actions')}}</th>
                         </tr>
@@ -158,7 +174,7 @@
                             className: 'row-selected'
                         },
                         ajax: {
-                            url: "{{route('brands.index')}}",
+                            url: "{{route('collections.index')}}",
                             error: function(xhr, error, thrown) {
                                 var status = xhr.status; // Get the status code
                                 if(status == 401 || status == 419){
@@ -182,6 +198,7 @@
                         columns: [
                             {data: 'id'},
                             {data: 'name'},
+                            {data: 'brand'},
                             {data: 'status'},
                             {data: 'actions'},
                         ],
@@ -239,6 +256,7 @@
 
 
                     addSearchParam('#delete_filter', 'is_deleted');
+                    addSearchParam('#brand_filter', 'brand_id');
                     addSearchParam('#search', 'search');
 
 
@@ -316,7 +334,7 @@
                                             }
                                         }).then(function () {
                                             // delete row data from server and re-draw datatable
-                                            var url = '{{route("brands.delete",[":id"])}}';
+                                            var url = '{{route("collections.delete",[":id"])}}';
                                             url = url.replace(':id', record_id);
 
                                             axios.post(url).then(function (response) {

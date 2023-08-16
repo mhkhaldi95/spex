@@ -85,7 +85,7 @@
 
 
                             <select class="form-select form-select-solid  w-250px fw-bolder "
-                                    data-kt-select2="true" data-placeholder="Status" name="status"
+                                    data-kt-select2="true" data-placeholder="Status" name="statusindex.blade.php"
                                     data-allow-clear="true" id="status_filter">
                                 <option></option>
                                 <option value="{{\App\Constants\Enum::PUBLISHED}}" {{isset($item)?$item['status'] == \App\Constants\Enum::PUBLISHED?'selected':'':''}}>{{__('lang.Published')}}</option>
