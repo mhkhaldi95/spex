@@ -108,6 +108,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::group(['prefix' => 'orders'], function () {
             Route::get('/', [OrderController::class, 'index'])->name('orders.index');
             Route::get('/{id}/show', [OrderController::class, 'show'])->name('orders.show');
+            Route::post('{id}/change-status', [OrderController::class, 'changeStatus'])->name('orders.changeStatus');
             Route::post('{id}/delete', [OrderController::class, 'delete'])->name('orders.delete');
         });
 

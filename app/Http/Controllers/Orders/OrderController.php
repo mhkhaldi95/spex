@@ -48,6 +48,19 @@ class OrderController extends Controller
             'item' => $item ,
         ]);
     }
+    public function changeStatus(Request $request,$id)
+    {
+
+        try {
+            $item = Order::query()->findOrFail($id);
+            $item->update([
+                'status' => $request->status
+            ]);
+            return $this->returnBackWithSaveDone();
+        } catch (QueryException $exception) {
+            return $this->invalidIntParameter();
+        }
+    }
 
     public function delete($id){
         try {

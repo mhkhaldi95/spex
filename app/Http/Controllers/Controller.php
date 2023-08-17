@@ -40,7 +40,7 @@ class Controller extends BaseController
     }
     public function returnBackWithSaveDone(){
         return back()->with([
-            'message' => __('save_done'),
+            'message' => 'Save Done',
             'alert-type' => 'success'
         ]);
     }
@@ -58,7 +58,7 @@ class Controller extends BaseController
     }
     public function returnBackWithSaveDoneFailed(){
         return back()->with([
-            'message' => __('lang.save_failed'),
+            'message' => 'Save Failed',
             'alert-type' => 'error'
         ]);
     }
