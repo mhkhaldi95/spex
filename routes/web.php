@@ -7,6 +7,7 @@ use App\Http\Controllers\Constant\ConstantController;
 use App\Http\Controllers\Notifications\NotificationController;
 use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Products\ProductController;
+use App\Http\Controllers\Settings\ActivityLogController;
 use App\Http\Controllers\Settings\SettingsController;
 use App\Http\Controllers\StartEndTimeController;
 use App\Http\Controllers\StatisticController;
@@ -116,6 +117,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/create/{id?}', [SettingsController::class, 'create'])->name('settings.create');
             Route::post('/store/{id?}', [SettingsController::class, 'store'])->name('settings.store');
+
+
+            Route::get('activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
         });
 
 

@@ -80,9 +80,10 @@
                                 <div class="col-12 mb-10">
                                     <label class="form-label">Description</label>
                                     <!--end::Label-->
+
                                     <!--begin::Editor-->
                                     <textarea class="form-control" name="description"  id="kt_ecommerce_add_product_description" rows="3">
-                                                    {{isset($item)?$item['description']:old('description')}}
+                                                  sssssss
                                                 </textarea>
                                     <!--end::Editor-->
                                 </div>
@@ -120,7 +121,7 @@
 @endsection
 @section('scripts')
 
-    <script src="{{asset('')}}assets/js/custom/save-product.js"></script>
+{{--    <script src="{{asset('')}}assets/js/custom/save-product.js"></script>--}}
 
 
 @endsection

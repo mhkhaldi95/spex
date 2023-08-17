@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\SystemLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
-    use HasFactory;
+    use HasFactory,SystemLog;
     const FILLABLE = ['order_id','product_id','color','image','price','qty'];
 
     protected $fillable = self::FILLABLE;

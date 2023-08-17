@@ -72,9 +72,11 @@ License: For each use you must have a valid license purchased only from above li
                              data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                              class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 
+                            @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'orders.show')
                             <!--begin::Breadcrumb-->
                             @include('dashboard.orders.status_btns')
                             <!--end::Breadcrumb-->
+                            @endif
                         </div>
                         <!--end::Page title-->
 

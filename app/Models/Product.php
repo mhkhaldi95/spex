@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Constants\Enum;
+use App\Traits\SystemLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory,SystemLog;
     const FILLABLE = ['name','description','master_image','tags','collection_id','status','is_deleted'];
 
     protected $fillable = self::FILLABLE;

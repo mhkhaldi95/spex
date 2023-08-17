@@ -254,6 +254,25 @@
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
+                                                <span class="menu-title">Show Settings</span>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
+											<span class="menu-link">
+												<span class="menu-bullet">
+													<span class="bullet "></span>
+												</span>
+												<span class="menu-title">Activity Logs</span>
+												<span class="menu-arrow"></span>
+											</span>
+                                <div class="menu-sub menu-sub-accordion">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="{{route('activity-logs.index')}}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
                                                 <span class="menu-title">Show</span>
                                             </a>
                                         </div>

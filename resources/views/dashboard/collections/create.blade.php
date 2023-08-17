@@ -103,7 +103,7 @@
                                     <label class="form-label">Description</label>
                                     <!--end::Label-->
                                     <!--begin::Editor-->
-                                    <textarea class="form-control" name="description"  id="kt_ecommerce_add_product_description" rows="3">
+                                    <textarea class="form-control" name="description"   rows="3">
                                                     {{isset($item)?$item['description']:old('description')}}
                                                 </textarea>
                                     <!--end::Editor-->

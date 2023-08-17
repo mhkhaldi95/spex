@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Constants\Enum;
+use App\Traits\SystemLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory,SystemLog;
     const FILLABLE = ['user_id','price','status','is_deleted'];
 
     protected $fillable = self::FILLABLE;
