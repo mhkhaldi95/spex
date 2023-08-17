@@ -5,6 +5,7 @@ use App\Http\Controllers\Brands\BrandController;
 use App\Http\Controllers\Collections\CollectionController;
 use App\Http\Controllers\Constant\ConstantController;
 use App\Http\Controllers\Notifications\NotificationController;
+use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Settings\SettingsController;
 use App\Http\Controllers\StartEndTimeController;
@@ -44,14 +45,6 @@ Route::get('/brands', function () {
     return view('website.welcome');
 });
 
-Route::get('/collections', function () {
-    return view('website.collections');
-});
-
-Route::get('/products', function () {
-    return view('website.products');
-});
-
 Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
     Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
         Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -59,13 +52,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
     });
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::group(['prefix' => 'admin','middleware' => ['admin']], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
         Route::group(['prefix' => 'auth'], function () {
             Route::get('logout', [LoginController::class, 'logout'])->name('logout')->withoutMiddleware('admin');
         });
-
 
 
         Route::get('{id}/account', [AccountSettingsController::class, 'create'])->name('admins.account.create')->withoutMiddleware('admin');
@@ -113,6 +105,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         });
 
 
+        Route::group(['prefix' => 'orders'], function () {
+            Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+            Route::get('/{id}/show', [OrderController::class, 'show'])->name('orders.show');
+            Route::post('{id}/delete', [OrderController::class, 'delete'])->name('orders.delete');
+        });
+
+
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/create/{id?}', [SettingsController::class, 'create'])->name('settings.create');
             Route::post('/store/{id?}', [SettingsController::class, 'store'])->name('settings.store');
@@ -122,17 +121,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
 
-
-
-
-
-
-
 });
-
-
-
-
 
 
 Route::get('notifications/{id}/readAt', function ($id) {

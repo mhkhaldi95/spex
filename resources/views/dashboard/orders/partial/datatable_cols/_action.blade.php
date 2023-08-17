@@ -14,20 +14,20 @@
 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-        <a href="{{route('collections.create',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
-            {{__('lang.Edit')}}
+        <a href="{{route('orders.show',$item->id)}}" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
+            Details
         </a>
     </div>
     <!--end::Menu item-->
 
     <div class="menu-item px-3">
         @if(!$item->is_deleted)
-            <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-                {{__('lang.Delete')}}
-            </a>
+        <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
+            {{__('lang.Delete')}}
+        </a>
         @else
             <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-                Cancel Delete
+               Cancel Delete
             </a>
         @endif
     </div>

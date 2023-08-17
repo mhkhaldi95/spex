@@ -62,7 +62,9 @@ class CollectionController extends Controller
 
         DB::beginTransaction();
         try {
-
+            if(isset($data['image'])){
+                $data['image'] =  uploadFile($request,'collections-image','image');
+            }
             $item = Collection::query()->updateOrCreate([
                 'id' => $id,
             ], $data);

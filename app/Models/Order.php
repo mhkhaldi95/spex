@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
+use App\Constants\Enum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Collection extends Model
+class Order extends Model
 {
     use HasFactory;
-    const FILLABLE = ['name','image','description','brand_id','is_deleted'];
+    const FILLABLE = ['user_id','price','status','is_deleted'];
 
     protected $fillable = self::FILLABLE;
-    public function scopeFilter($q){
+
+    public function scopeFilter($q)
+    {
         // special for filter dashboard -- start
         $searchParams = [];
         if(request('search') && !is_null(request('search')['value'])){
@@ -21,11 +24,11 @@ class Collection extends Model
         foreach ($searchParams as $column => $value) {
             if ($value !== '') {
                 switch ($column) {
-                    case 'search':
-                        $q->where('name','like',"%$value%");
+                    case 'user_id':
+                        $q->where('user_id', $value);
                         break;
-                    case 'brand_id':
-                        $q->where('brand_id',$value);
+                    case 'status':
+                        $q->where('status', $value);
                         break;
                     case 'is_deleted':
                         $q->where('is_deleted', $value);
@@ -35,21 +38,30 @@ class Collection extends Model
             }
         }
         // special for filter dashboard -- end
+
         return $q;
-    }
-    public function brand(){
-        return $this->belongsTo(Brand::class);
     }
 
     public function scopeActive($q){
         $q->where('is_deleted',0);
     }
 
-    public function getImageAttribute($value)
-    {
-        if ($value == 'default.png') {
-            return asset('assets/media/default.png');
-        }
-        return asset('storage/collections-image/' . $value);
+
+
+    public function customer(){
+        return $this->belongsTo(User::class,'user_id');
     }
+    public function items(){
+        return $this->hasMany(OrderItem::class);
+    }
+
+
+
+
+
+
+
+
+
+
 }

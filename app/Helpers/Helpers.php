@@ -159,40 +159,19 @@ function checkQtyInCart($branch)
     return ['status' => $status, 'msg' => $msg];
 
 }
-function calculateCashback(){
-    $cashback = 0;
-    $cart = session()->get('cart');
-    if(!is_null($cart) && count($cart) > 0){
-        foreach($cart as $item){
-            $cashback += floatval($item['cashback']);
-        }
 
-    }
-    return $cashback;
-}
-function calculateOrderCashback($order){
-    $cachback = 0 ;
-     foreach($order->items as $item){
-         $product = $item->product ;
-         $cachback+=$product->cashback;
-     }
-     return $cachback;
 
-}
 function getClassByStatus($status){
     switch ($status) {
-        case Enum::PENDING: return 'primary';
-        case Enum::COMPLETED : return 'success';
-        case Enum::CANCELED : return 'danger';
+        case Enum::NEW: return 'primary';
+        case Enum::PREPARATION: return 'warning';
+        case Enum::SHIPPED: return 'secondary';
+        case Enum::CLEARANCE: return 'dark';
+        case Enum::DELIVERING : return 'info';
+        case Enum::DELIVERED : return 'success';
     }
 }
-function getStatusStr($status){
-    switch ($status) {
-        case Enum::PENDING: return 'غير مكتملة ';
-        case Enum::COMPLETED : return 'مكتملة';
-        case Enum::CANCELED :return 'ملغية';
-    }
-}
+
 
 function getSettingByKey($settings,$key){
     return $settings->where('key',$key)->first();

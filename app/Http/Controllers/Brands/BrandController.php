@@ -60,6 +60,9 @@ class BrandController extends Controller
         DB::beginTransaction();
         try {
 
+            if(isset($data['image'])){
+                $data['image'] =  uploadFile($request,'brands-image','image');
+            }
             $item = Brand::query()->updateOrCreate([
                 'id' => $id,
             ], $data);

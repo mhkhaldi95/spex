@@ -58,9 +58,7 @@
                                 <!--end::Remove-->
                             </div>
                             <!--end::Image input-->
-                            <!--begin::Description-->
-                            {{--                            <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>--}}
-                            <!--end::Description-->
+
                         </div>
                         <!--end::Card body-->
                     </div>
