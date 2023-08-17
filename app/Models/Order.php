@@ -24,6 +24,9 @@ class Order extends Model
         foreach ($searchParams as $column => $value) {
             if ($value !== '') {
                 switch ($column) {
+                    case 'id':
+                        $q->where('id', $value);
+                        break;
                     case 'user_id':
                         $q->where('user_id', $value);
                         break;
