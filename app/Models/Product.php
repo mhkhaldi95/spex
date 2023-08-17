@@ -76,18 +76,7 @@ class Product extends Model
         return asset('storage/product-images/'.$this->master_image);
     }
 
-    public function getPriceAfterDiscountAttribute(){
-        $price_after_discount = $this->price;
-        if($this->discounted_price){
-            switch ($this->discount_option){
-                case Enum::DISCOUNT_PERCENTAGE :
-                    $price_after_discount = $this->price -  ($this->price * ($this->discounted_price/100));break;
-                case Enum::DISCOUNT_FIXED :
-                    $price_after_discount = $this->price -  $this->discounted_price;break;
-            }
-        }
-        return $price_after_discount;
-    }
+
 //    public function getBestSellingProducts(){
 //        $bestSellingProducts = DB::table('order_items')
 //            ->select('product_id', DB::raw('SUM(quantity) as total_quantity'))

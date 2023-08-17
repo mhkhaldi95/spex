@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Products;
+namespace App\Http\Resources\Orders;
 
 use App\Constants\Enum;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class OrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,14 +17,12 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         $data = parent::toArray($request);
-        $data['id'] =  view('dashboard.products.partial.datatable_cols._id',['item' => $this])->render();
-        $data['name'] =  view('dashboard.products.partial.datatable_cols._name',['item' => $this])->render();
-        $data['avatar'] =   $this->avatar;
-        $data['collection'] =  view('dashboard.products.partial.datatable_cols._collection',['item' => $this])->render();;
+        $data['customer_name'] =  view('dashboard.orders.partial.datatable_cols._customer_name',['item' => $this])->render();
+        $data['price'] =  view('dashboard.orders.partial.datatable_cols._price',['item' => $this])->render();
         $data['created_at'] = Carbon::parse($data['created_at'])->format('Y-m-d H:i:s');
-        $data['actions'] =  view('dashboard.products.partial.datatable_cols._action',['item' => $this])->render();
-        $data['status'] =  view('dashboard.products.partial.datatable_cols._status',['item' => $this])->render();
-        $data['check_delete'] =  view('dashboard.products.partial.datatable_cols._check_delete',['item' => $this])->render();
+        $data['actions'] =  view('dashboard.orders.partial.datatable_cols._action',['item' => $this])->render();
+        $data['status'] =  view('dashboard.orders.partial.datatable_cols._status',['item' => $this])->render();
+        $data['check_delete'] =  view('dashboard.orders.partial.datatable_cols._check_delete',['item' => $this])->render();
         return  $data;
 
     }

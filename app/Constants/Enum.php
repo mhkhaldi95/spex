@@ -21,45 +21,29 @@ class Enum
     const CUSTOMER = 3;
 
 
-
-
-
-
-
-    // user gender
-
-    const MALE = 1;
-    const FEMALE = 2;
-
-
     // product status
 
     const PUBLISHED = 'published';
     const INACTIVE = 'inactive';
 
-    // discount type
 
-    const NO_DISCOUNT = 1;
-    const DISCOUNT_PERCENTAGE = 2;
-    const DISCOUNT_FIXED = 3;
+    // order status
 
-
-    // branch status
-    const BRANCH_OPEN = 'open';
-    const BRANCH_CLOSED = 'closed';
-
-
-    // type discount coupon
-    const FIXED = 'fixed';
-    const PERCENTAGE = 'percentage';
+    const NEW = 'new';
+    const PREPARATION = 'preparation';
+    const SHIPPED = 'shipped';
+    const CLEARANCE = 'clearance';
+    const DELIVERING = 'delivering';
+    const DELIVERED = 'delivered';
 
 
-    // type discount coupon
-    const INITIATED = 'initiated';
-    const PAID = 'paid';
-    const ACCEPT = 'accept';
-    const REJECT = 'reject';
-    const DONE = 'done';
+
+
+
+
+
+
+
 
 
 
