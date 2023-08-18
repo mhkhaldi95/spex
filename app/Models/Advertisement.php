@@ -23,7 +23,7 @@ class Advertisement extends Model
             if ($value !== '') {
                 switch ($column) {
                     case 'search':
-                        $q->where('name','like',"%$value%");
+                        $q->where('description','like',"%$value%");
                         break;
                     case 'is_deleted':
                         $q->where('is_deleted', $value);

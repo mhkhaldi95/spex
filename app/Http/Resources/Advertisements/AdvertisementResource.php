@@ -18,7 +18,7 @@ class AdvertisementResource extends JsonResource
     {
         $data = parent::toArray($request);
         $data['actions'] =  view('dashboard.advertisements.partial.datatable_cols._action',['item' => $this])->render();
-        $data['check_delete'] =  view('dashboard.advertisements.partial.datatable_cols._check_delete',['item' => $this])->render();
+        $data['status'] =  view('dashboard.advertisements.partial.datatable_cols._check_delete',['item' => $this])->render();
 
         return  $data;
 
