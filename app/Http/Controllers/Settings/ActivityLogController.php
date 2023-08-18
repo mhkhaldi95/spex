@@ -8,11 +8,31 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Settings\ActivityLogResource;
 use App\Models\ActivityLog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ActivityLogController extends Controller
 {
 
     public function index(Request $request){
+
+
+        $directory = app_path('Models'); // Update this path according to your folder structure
+
+        $files = File::files($directory);
+
+        $modelClasses = collect($files)
+            ->map(function ($file) {
+                $fileName = pathinfo($file)['filename'];
+                $className = "App\\Models\\{$fileName}";
+
+                if (class_exists($className)) {
+                    return $className;
+                }
+
+                return null;
+            })
+            ->filter()
+            ->toArray();
         if($request->ajax()){
             $length = \request()->get('length', 10);
             $items = ActivityLog::query()->with(['causer'])->orderBy(getColAndDirForOrderBy()['col'], getColAndDirForOrderBy()['dir'])->filter()->paginate($length,'*','*',getPageNumber($length));
@@ -25,6 +45,7 @@ class ActivityLogController extends Controller
         return view('dashboard.settings.activity_log.index', [
             'page_title' =>'Activity Logs',
             'page_breadcrumbs' => $page_breadcrumbs,
+            'modelClasses' => $modelClasses,
         ]);
     }
 

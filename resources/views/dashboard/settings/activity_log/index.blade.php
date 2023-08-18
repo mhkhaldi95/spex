@@ -18,12 +18,44 @@
                     <div class="row g-8" style="margin-left: 10px">
                         <!--begin::Row-->
                         <div class="row g-8 academic-dev">
+                            <!--begin::Col-->
+                            <div class="col-lg-3 ">
+                                <div class="d-flex align-items-center position-relative my-1">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+														<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+													</svg>
+												</span>
+                                    <!--end::Svg Icon-->
+                                    <input type="text" id="subject_id"  class="form-control form-control-solid w-250px ps-14" placeholder="Subject No" />
+                                </div>
+                            </div>
+                            <!--end::Col-->
 
                             <!--begin::Col-->
                             <div class="col-lg-3 ">
 
+                                <!--begin::Input-->
+                                <select class="form-select form-select-solid   fw-bolder "
+                                        data-kt-select2="true" data-placeholder="Subject Name"
+                                        data-allow-clear="true" id="subject_filter">
+                                    <option></option>
+                                    @foreach($modelClasses as $model)
+                                        @php
+                                            $model_name = explode('\\', $model);
+                                             $subject_name = $model_name[count($model_name)-1];
+                                        @endphp
+                                        <option value="{{$model}}">{{ucwords($subject_name)}}</option>
+                                    @endforeach
 
+                                </select>
+                                <!--end::Input-->
                             </div>
+                            <!--end::Col-->
+
+
 
                         </div>
                         <!--end::Row-->
@@ -226,8 +258,8 @@
 
 
 
-                    addSearchParam('#delete_filter', 'is_deleted');
-                    addSearchParam('#search', 'search');
+                    addSearchParam('#subject_filter', 'subject_type');
+                    addSearchParam('#subject_id', 'subject_id');
 
 
 

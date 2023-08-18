@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Advertisements\AdvertisementController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Brands\BrandController;
 use App\Http\Controllers\Collections\CollectionController;
@@ -114,10 +115,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         });
 
 
+        Route::group(['prefix' => 'advertisements'], function () {
+            Route::get('/', [AdvertisementController::class, 'index'])->name('advertisements.index');
+            Route::get('/create/{id?}', [AdvertisementController::class, 'create'])->name('advertisements.create');
+            Route::post('/store/{id?}', [AdvertisementController::class, 'store'])->name('advertisements.store');
+            Route::post('{id}/delete', [AdvertisementController::class, 'delete'])->name('advertisements.delete');
+       });
+
+
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/create/{id?}', [SettingsController::class, 'create'])->name('settings.create');
             Route::post('/store/{id?}', [SettingsController::class, 'store'])->name('settings.store');
-
 
             Route::get('activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
         });

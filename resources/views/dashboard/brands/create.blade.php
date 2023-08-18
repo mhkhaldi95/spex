@@ -83,9 +83,10 @@
 
                                     <!--begin::Editor-->
                                     <textarea class="form-control" name="description"  id="kt_ecommerce_add_product_description" rows="3">
-                                                  sssssss
+                                                    {{isset($item)?$item['description']:old('description')}}
                                                 </textarea>
                                     <!--end::Editor-->
+
                                 </div>
                                 <!--end::Input group-->
 

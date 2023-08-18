@@ -9,28 +9,40 @@
             <!--begin::Card-->
             <div class="card">
                 <!--begin::Card header-->
-{{--                <div class="card-header align-items-center py-5 gap-2 gap-md-5">--}}
-{{--                    <!--begin::Card title-->--}}
-{{--                    <div class="card-title">--}}
-{{--                        <!--begin::Search-->--}}
+                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <!--begin::Search-->
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                            <span class="svg-icon svg-icon-1 position-absolute ms-4">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+														<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+													</svg>
+												</span>
+                            <!--end::Svg Icon-->
+                            <input type="text" id="search"  class="form-control form-control-solid w-250px ps-14" placeholder="Search Product" />
+                        </div>
+                        <!--end::Search-->
+                    </div>
+                    <!--end::Card title-->
+                    <!--begin::Card toolbar-->
+                    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
 
-{{--                        <!--end::Search-->--}}
-{{--                    </div>--}}
-{{--                    <!--end::Card title-->--}}
-{{--                    <!--begin::Card toolbar-->--}}
-{{--                    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">--}}
+                        <div class="w-100 mw-150px">
 
-{{--                        <div class="w-100 mw-150px">--}}
-
-{{--                        </div>--}}
-{{--                        <!--begin::Add product-->--}}
-{{--                        <a href="{{route('products.create')}}" class="btn btn-primary">Add Order</a>--}}
-{{--                        <!--end::Add product-->--}}
-{{--                    </div>--}}
-{{--                    <!--end::Card toolbar-->--}}
-{{--                </div>--}}
+                        </div>
+                        <!--begin::Add product-->
+                        <a href="{{route('advertisements.create')}}" class="btn btn-primary">Add Advertisement</a>
+                        <!--end::Add product-->
+                    </div>
+                    <!--end::Card toolbar-->
+                </div>
                 <!--end::Card header-->
-
+                <!--begin::Separator-->
+                <div class="separator separator-dashed mt-0 mb-0"></div>
+                <!--end::Separator-->
                 <!--begin::Advance form-->
                 <div class="collapse show" id="kt_advanced_search_form">
 
@@ -39,64 +51,13 @@
                     <div class="row g-8" style="margin-left: 10px">
                         <!--begin::Row-->
                         <div class="row g-8 academic-dev">
-                            <!--begin::Col-->
-                            <div class="col-lg-3 ">
-                                <div class="d-flex align-items-center position-relative my-1">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-                                <span class="svg-icon svg-icon-1 position-absolute ms-4">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-														<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
-														<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
-													</svg>
-												</span>
-                                <!--end::Svg Icon-->
-                                <input type="text" id="order_id"  class="form-control form-control-solid w-250px ps-14" placeholder="Order No" />
-                                </div>
-                            </div>
-                            <!--end::Col-->
 
                             <!--begin::Col-->
                             <div class="col-lg-3 ">
 
                                 <!--begin::Input-->
-                                <select class="form-select form-select-solid   fw-bolder "
+                                <select class="form-select form-select-solid  w-250px fw-bolder "
                                         data-kt-select2="true" data-placeholder="Status"
-                                        data-allow-clear="true" id="status_filter">
-                                    <option></option>
-                                    <option value="{{Enum::NEW}}" >{{ucwords(Enum::NEW)}}</option>
-                                    <option value="{{Enum::PREPARATION}}" >{{ucwords(Enum::PREPARATION)}}</option>
-                                    <option value="{{Enum::SHIPPED}}" >{{ucwords(Enum::SHIPPED)}}</option>
-                                    <option value="{{Enum::CLEARANCE}}" >{{ucwords(Enum::CLEARANCE)}}</option>
-                                    <option value="{{Enum::DELIVERING}}" >{{ucwords(Enum::DELIVERING)}}</option>
-                                    <option value="{{Enum::DELIVERED}}" >{{ucwords(Enum::DELIVERED)}}</option>
-
-                                </select>
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Col-->
-
-                            <!--begin::Col-->
-                            <div class="col-lg-3 ">
-
-                                <!--begin::Input-->
-                                <select class="form-select form-select-solid  fw-bolder "
-                                        data-kt-select2="true" data-placeholder="Customers"
-                                        data-allow-clear="true" id="customer_filter">
-                                    <option></option>
-                                    @foreach($customers as $customer)
-                                     <option value="{{$customer->id}}" >{{$customer->name}}</option>
-                                    @endforeach
-
-                                </select>
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Col-->
-                            <!--begin::Col-->
-                            <div class="col-lg-3 ">
-
-                                <!--begin::Input-->
-                                <select class="form-select form-select-solid   fw-bolder "
-                                        data-kt-select2="true" data-placeholder="Active/Deleted"
                                         data-allow-clear="true" id="delete_filter">
                                     <option></option>
                                     <option value="0" >Active</option>
@@ -106,6 +67,14 @@
                                 </select>
                                 <!--end::Input-->
                             </div>
+                            <!--end::Col-->
+
+
+
+
+
+                            <!--begin::Col-->
+
 
 
                         </div>
@@ -126,18 +95,10 @@
                         <!--begin::Table row-->
                         <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                             <th class="w-10px pe-2">
-{{--                                <div class="form-check form-check-sm form-check-custom form-check-solid me-3">--}}
-{{--                                    <input class="form-check-input" id="all_checked" type="checkbox"--}}
-{{--                                           data-kt-check="true"--}}
-{{--                                           data-kt-check-target="#kt_customers_table .form-check-input" value="1"/>--}}
-{{--                                </div>--}}
                                 #
                             </th>
-                            <th class="min-w-125px">Customer Name</th>
-                            <th class="min-w-125px">Price</th>
+                            <th class="min-w-125px">Content</th>
                             <th class="min-w-125px"> Status</th>
-                            <th class="min-w-125px"> Active/Deleted</th>
-                            <th class="min-w-125px">Created At</th>
                             <th class="text-end min-w-70px">{{__('lang.actions')}}</th>
                         </tr>
                         <!--end::Table row-->
@@ -168,10 +129,6 @@
         $(document).ready(function () {
 
             "use strict";
-            // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-            // $('#date_from').attr('disabled',true)
-
-
 
             // Class definition
             var KTDatatablesServerSide = function () {
@@ -190,13 +147,8 @@
                         'lengthMenu': [[10, 20, 50, 100], [10, 20, 50, 100]],
                         order: [],
                         stateSave: false,
-                        select: {
-                            style: 'multi',
-                            selector: 'td:first-child input[type="checkbox"]',
-                            className: 'row-selected'
-                        },
                         ajax: {
-                            url: "{{route('orders.index')}}",
+                            url: "{{route('advertisements.index')}}",
                             error: function(xhr, error, thrown) {
                                 var status = xhr.status; // Get the status code
                                 if(status == 401 || status == 419){
@@ -210,19 +162,17 @@
                         preDrawCallback: function(settings) {
                             KTApp.showPageLoading();
                         },
+
+
                         drawCallback: function(settings) {
                             KTApp.hidePageLoading();
+                            $('#all_checked').prop('checked', false);
 
                         },
-
-
                         columns: [
                             {data: 'id'},
-                            {data: 'customer_name'},
-                            {data: 'price'},
+                            {data: 'description'},
                             {data: 'status'},
-                            {data: 'check_delete'},
-                            {data: 'created_at'},
                             {data: 'actions'},
                         ],
                         columnDefs: [
@@ -242,21 +192,7 @@
                                 orderable: false,
                             },
 
-                            {
-                                targets: 3,
-                                orderable: false,
 
-                            },
-                            {
-                                targets: 4,
-                                orderable: false,
-
-                            },
-                            {
-                                targets: 5,
-                                orderable: false,
-
-                            },
                             {
                                 targets: -1,
                                 orderable: false,
@@ -292,10 +228,8 @@
 
 
 
-                    addSearchParam('#status_filter', 'status');
-                    addSearchParam('#customer_filter', 'user_id');
                     addSearchParam('#delete_filter', 'is_deleted');
-                    addSearchParam('#order_id', 'id');
+                    addSearchParam('#search', 'search');
 
 
 
@@ -363,7 +297,7 @@
                                         timer: 2000
                                     }).then(function () {
                                         Swal.fire({
-                                            text: "Deleted order" + customerName + "!.",
+                                            text: "Deleted " + customerName + "!.",
                                             icon: "success",
                                             buttonsStyling: false,
                                             confirmButtonText: "Ok, got it!",
@@ -372,7 +306,7 @@
                                             }
                                         }).then(function () {
                                             // delete row data from server and re-draw datatable
-                                            var url = '{{route("orders.delete",[":id"])}}';
+                                            var url = '{{route("advertisements.delete",[":id"])}}';
                                             url = url.replace(':id', record_id);
 
                                             axios.post(url).then(function (response) {
