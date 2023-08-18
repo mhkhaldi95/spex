@@ -42,8 +42,8 @@ class ProductRequest extends FormRequest
             'products_images.*' => 'required|string|max:255',
             'product_color_image.*' => 'nullable|file',
             'colors.*' => 'nullable|string|max:255',
-            'prices.*' => 'nullable|numeric|max:255',
-            'stokes.*' => 'nullable|numeric|max:255',
+            'prices.*' => 'nullable|numeric',
+            'stokes.*' => 'nullable|numeric',
 //
 
         ];

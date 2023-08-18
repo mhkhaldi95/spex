@@ -14,7 +14,7 @@ class Product extends Model
     const FILLABLE = ['name','description','master_image','tags','collection_id','status','is_deleted'];
 
     protected $fillable = self::FILLABLE;
-    protected $appends =['avatar','price_after_discount'];
+    protected $appends =['avatar'];
 
     public function scopeFilter($q)
     {
