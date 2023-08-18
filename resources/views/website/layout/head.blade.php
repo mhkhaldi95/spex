@@ -1,32 +1,26 @@
+    <title>{{getSettingByKey($settings,'site_name')->value }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="{{getSettingByKey($settings,'site_icon')->value}}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{getSettingByKey($settings,'site_name')->value }}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta charset="utf-8" />
-<link rel="shortcut icon" href="{{getSettingByKey($settings,'site_icon')->value}}" />
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
 
-<!--begin::Fonts-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-<!--end::Fonts-->
-<link href="{{asset('')}}assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-<!--begin::Page Vendor Stylesheets(used by this page)-->
-<link href="{{asset('')}}assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-<!--end::Page Vendor Stylesheets-->
-<!--begin::Page Vendor Stylesheets(used by this page)-->
-<link href="{{asset('')}}assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-<!--end::Page Vendor Stylesheets-->
-<!--begin::Global Stylesheets Bundle(used by all pages)-->
-<link href="{{asset('')}}assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('')}}assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('')}}assets/css/custom.ltr.css" rel="stylesheet" type="text/css" />
-<link href="{{asset('')}}assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- CSS
+    ============================================ -->
 
-{{--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
-<script src="{{asset('')}}assets/plugins/global/axios.js"></script>
-{{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
-<link href="{{asset('')}}assets/css/flatpickr.min.css" rel="stylesheet" type="text/css" />
-
-{{--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">--}}
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/flaticon/flaticon.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/sal.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/base.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/style.min.css">
 
 @yield('head')

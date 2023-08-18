@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
-{{--<html lang="en">--}}
 <html lang="{{app()->getLocale() == 'ar'?'ar':'en'}}" dir="{{app()->getLocale() == 'ar'?'rtl':'ltr'}}">
 <!--begin::Head-->
 <head>
@@ -18,147 +6,111 @@ License: For each use you must have a valid license purchased only from above li
     @include('website.layout.head')
 </head>
 <!--end::Head-->
-<!--begin::Body-->
-<body id="kt_body"
-      class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed"
-      style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px"
-      data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on">
-<!--begin::Main-->
-    <!--begin::Page-->
-    <div class="page d-flex flex-row flex-column-fluid">
 
-        <!--begin::Main-->
-        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-            <!--begin::Header-->
-            @include('website.layout.header')
-            <!--end::Header-->
-            <!--begin::Content-->
-            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                @yield('content')
-            </div>
-            <!--end::Content-->
-            <!--begin::Footer-->
-            @include('website.layout.footer')
-            <!--end::Footer-->
+<body class="sticky-header">
+
+<!-- Start Header Area  -->
+@include('website.layout.header')
+<!-- End Header Area  -->
+
+
+<main class="main-wrapper pv-main-wrapper">
+    @yield('content')
+</main>
+
+<!-- Start Footer Area  -->
+@include('website.layout.footer')
+<!-- End Footer Area  -->
+
+<div class="cart-dropdown" id="cart-dropdown">
+    <div class="cart-content-wrap">
+        <div class="cart-header">
+            <h2 class="header-title">Cart review</h2>
+            <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
         </div>
-        <!--end::Content wrapper-->
-
+        <div class="cart-body">
+            <ul class="cart-item-list">
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product.html"><img src="assets/images/product/electric/product-01.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title"><a href="single-product-3.html">Wireless PS Handler</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="15">
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product-2.html"><img src="assets/images/product/electric/product-02.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title"><a href="single-product-2.html">Gradient Light Keyboard</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>255.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="5">
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product-3.html"><img src="assets/images/product/electric/product-03.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title"><a href="single-product.html">HD CC Camera</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>200.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="100">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-footer">
+            <h3 class="cart-subtotal">
+                <span class="subtotal-title">Subtotal:</span>
+                <span class="subtotal-amount">$610.00</span>
+            </h3>
+            <div class="group-btn">
+                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Submit</a>
+            </div>
+        </div>
     </div>
-    <!--end::Page-->
 </div>
-<!--end::Root-->
-
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="{{asset('')}}assets/plugins/global/plugins.bundle.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-{{--<script src="{{asset('')}}assets/js/scripts2.bundle.js"></script>--}}
-<script src="{{asset('')}}assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
-<!--begin::Page Vendors Javascript(used by this page)-->
-<script src="{{asset('')}}assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-<!--end::Page Vendors Javascript-->
-<!--begin::Page Custom Javascript(used by this page)-->
-<script src="{{asset('')}}assets/js/custom/widgets.js"></script>
-<script src="{{asset('')}}assets/js/custom/apps/chat/chat.js"></script>
-<script src="{{asset('')}}assets/js/custom/modals/create-app.js"></script>
-<script src="{{asset('')}}assets/js/custom/modals/upgrade-plan.js"></script>
-<!--begin::Page Vendors Javascript(used by this page)-->
-<script src="{{asset('')}}assets/plugins/custom/datatables/datatables.bundle.js"></script>
-<!--end::Page Vendors Javascript-->
-{{--<script src="{{asset('')}}assets/js/custom/documentation/general/datatables/server-side.js"></script>--}}
-<script src="{{asset('')}}assets/js/custom/documentation/general/toastr.js"></script>
-{{--<script src="{{asset('')}}assets/js/custom/bootstrap-datepicker.js"></script>--}}
-<!--end::Page Custom Javascript-->
-{{--<script src="{{asset('')}}assets/js/custom/bootstrap-datepicker.js?v=7.2.9"></script>--}}
-<!--end::Javascript-->
-
-<script>
+</body>
 
 
-    function disableButton(id_btn) {
-        var button = document.getElementById(id_btn);
-        button.disabled = true;
-    }
+<!-- JS
+============================================ -->
+<!-- Modernizer JS -->
+<script src="{{asset('')}}website/assets/js/vendor/modernizr.min.js"></script>
+<!-- jQuery JS -->
+<script src="{{asset('')}}website/assets/js/vendor/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('')}}website/assets/js/vendor/popper.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/bootstrap.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/slick.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/js.cookie.js"></script>
+<!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+<script src="{{asset('')}}website/assets/js/vendor/jquery-ui.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/jquery.countdown.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/sal.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/jquery.magnific-popup.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/isotope.pkgd.min.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/counterup.js"></script>
+<script src="{{asset('')}}website/assets/js/vendor/waypoints.min.js"></script>
 
-    function enableButton(id_btn) {
-        var button = document.getElementById(id_btn);
-        button.disabled = false;
-    }
-
-    function disableButtonAndSubmitForm(id_btn, id_form) {
-        var button = document.getElementById(id_btn);
-        button.disabled = true;
-        var form = document.getElementById(id_form);
-        form.submit();
-    }
-
-
-</script>
-@yield('scripts')
-
-<script type="text/javascript">
-    @if(Session::has('message'))
-        toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        @if(app()->getLocale() == 'ar')
-        "positionClass": "toast-top-left",
-        @else
-        "positionClass": "toast-top-right",
-        @endif
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
-
-    var type = "{{Session::get('alert-type','info')}}"
-    switch (type) {
-        case 'info':
-            toastr.info("{{Session::get('message') }}");
-            break;
-        case 'success':
-            toastr.success("{{Session::get('message') }}");
-            break;
-        case 'warning':
-            toastr.warning("{{Session::get('message') }}");
-            break;
-        case 'error':
-            toastr.error("{{Session::get('message') }}");
-            break;
-    }
-    @endif
-
-    $(document).ready(function () {
-
-
-        $(document).on('select2:open', '.form-select', function () {
-            if ($(this)) {
-                $('.select2-search__field').each(function () {
-                    $(this)[0].focus()
-                })
-            }
-        });
-
-
-
-        // $('#kt_aside_toggle').click()
-
-
-    });
-
-</script>
+<!-- Main JS -->
+<script src="{{asset('')}}website/assets/js/main.js"></script>
 
 </body>
 <!--end::Body-->
+
 </html>

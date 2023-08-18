@@ -1,14 +1,17 @@
-<!--begin::Footer-->
-<div class="footer py-5 d-flex flex-lg-column" id="kt_footer">
-    <!--begin::Container-->
-    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center">
-        <!--begin::Copyright-->
-        <div class="text-dark order-2 order-md-1">
-            <span class="text-muted fw-bold me-1">2023©</span>
-            <a href="" target="_blank" class="text-gray-800 text-hover-primary">{{getSettingByKey($settings,'site_name')->value}}</a>
+<footer class="axil-footer-area footer-style-2">
+    <!-- Start Copyright Area  -->
+    <div class="copyright-area copyright-default">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12">
+                    <div class="copyright-left d-flex flex-wrap justify-content-center">
+                        <ul class="quick-link">
+                            <li>© 2023. All rights reserved by <a target="_blank" href="https://axilthemes.com/">Axilthemes</a>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--end::Copyright-->
     </div>
-    <!--end::Container-->
-</div>
-<!--end::Footer-->
+    <!-- End Copyright Area  -->
+</footer>
