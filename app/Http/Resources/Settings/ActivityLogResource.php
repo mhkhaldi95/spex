@@ -19,7 +19,7 @@ class ActivityLogResource extends JsonResource
         return [
             'log_name' => $this->log_name,
             'properties' => $this->convertProperties($this->properties)[0],
-            'causer_name' => $this->causer->name,
+            'causer_name' => @$this->causer->name,
             'subject_id' => $this->subject_id,
             'created_at' => $this->created_at,
             'description' => $this->description,
