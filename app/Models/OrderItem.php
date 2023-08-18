@@ -10,11 +10,14 @@ class OrderItem extends Model
 {
     use HasFactory,SystemLog;
     const FILLABLE = ['order_id','product_id','color','image','price','qty'];
-
+    protected $with =['product'];
     protected $fillable = self::FILLABLE;
 
     public function scopeFilter($q)
     {
+
+
+
         return $q;
     }
 

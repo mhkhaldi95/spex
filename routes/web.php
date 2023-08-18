@@ -8,6 +8,7 @@ use App\Http\Controllers\Constant\ConstantController;
 use App\Http\Controllers\Notifications\NotificationController;
 use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Products\ProductController;
+use App\Http\Controllers\Reports\ReportController;
 use App\Http\Controllers\Settings\ActivityLogController;
 use App\Http\Controllers\Settings\SettingsController;
 use App\Http\Controllers\StartEndTimeController;
@@ -121,6 +122,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::post('/store/{id?}', [AdvertisementController::class, 'store'])->name('advertisements.store');
             Route::post('{id}/delete', [AdvertisementController::class, 'delete'])->name('advertisements.delete');
        });
+
+        Route::group(['prefix' => 'reports'], function () {
+            Route::get('/customers', [ReportController::class, 'customers'])->name('reports.customers');
+        });
+
 
 
         Route::group(['prefix' => 'settings'], function () {

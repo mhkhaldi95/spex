@@ -60,6 +60,9 @@
 .menu-title,.menu-item,.menu-content{
     /*color: white !important;*/
 }
+.customer-reports .table-responsive{
+    height: 460px !important;
+}
 
 
 

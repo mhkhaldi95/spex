@@ -43,6 +43,15 @@ class Order extends Model
         }
         // special for filter dashboard -- end
 
+        if(request('user_id') && !empty(request('user_id'))){
+            $q->where('user_id', request('user_id'));
+        }
+        if(request('datefilter') && !empty(request('datefilter'))){
+            $q->where('created_at','>=', convetDate(explodeDate()[0]). ' 00:00:00')
+                ->where('created_at','<=', convetDate(explodeDate()[1]). ' 23:59:59')
+            ;
+        }
+
         return $q;
     }
 

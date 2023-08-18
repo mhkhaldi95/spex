@@ -71,7 +71,8 @@ class Product extends Model
 
 
     public function getAvatarAttribute(){
-        if($this->master_photo == 'default.png'){
+
+        if($this->master_image == 'default.png'){
             return asset('assets/media/default.png');
         }
         return asset('storage/product-images/'.$this->master_image);
