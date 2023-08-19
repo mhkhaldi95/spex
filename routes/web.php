@@ -44,8 +44,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/brands', function () {
-    return view('website.welcome');
+Route::get('/myaccount', function () {
+    return view('website.myaccount');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
