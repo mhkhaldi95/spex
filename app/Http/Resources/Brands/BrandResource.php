@@ -24,7 +24,7 @@ class BrandResource extends JsonResource
         return  $data;
 
     }
-    public function toShow(){
+    public static function reports(){
         return [
 
 

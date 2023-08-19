@@ -24,11 +24,11 @@ class ProductController extends Controller
             return datatable_response($items, null, ProductResource::class);
         }
         $page_breadcrumbs = [
-            ['page' => route('dashboard.index') , 'title' =>__('lang.home'),'active' => true],
-            ['page' => '#' , 'title' =>__('lang.products'),'active' => false],
+            ['page' => route('dashboard.index') , 'title' =>'Home','active' => true],
+            ['page' => '#' , 'title' =>'Products','active' => false],
         ];
         return view('dashboard.products.index', [
-            'page_title' =>__('lang.products'),
+            'page_title' =>'Products',
             'page_breadcrumbs' => $page_breadcrumbs,
             'collections' => Collection::query()->active()->get(),
         ]);
@@ -45,8 +45,8 @@ class ProductController extends Controller
             }
         }
         $page_breadcrumbs = [
-            ['page' => route('dashboard.index') , 'title' =>__('lang.home'),'active' => true],
-            ['page' => route('products.index') , 'title' =>__('lang.products'),'active' => true],
+            ['page' => route('dashboard.index') , 'title' =>'Home','active' => true],
+            ['page' => route('products.index') , 'title' =>'Products','active' => true],
             ['page' => '#' , 'title' =>isset($id)?__('lang.edit'):__('lang.add'),'active' => false],
         ];
         return view('dashboard.products.create', [
@@ -97,8 +97,8 @@ class ProductController extends Controller
                 ProductVariants::create([
                     'product_id' => $item->id,
                     'color' => $color,
-                    'price' => request('prices')[$index],
-                    'stoke' => request('stokes')[$index],
+                    'price' => request('prices')[$index]??0,
+                    'stoke' => request('stokes')[$index]??0,
                     'image' => $product_color_image,
                 ]);
             }
