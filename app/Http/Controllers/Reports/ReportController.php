@@ -94,7 +94,7 @@ class ReportController extends Controller
     public function products(Request $request)
     {
 
-        $mostPurchasedProducts = Product::select('products.name as product_name', DB::raw('COUNT(*) as purchase_count'))
+        $mostPurchasedProducts = Product::select('products.name as product_name', 'products.id as product_id', DB::raw('COUNT(*) as purchase_count'))
             ->join('collections', 'products.collection_id', '=', 'collections.id')
             ->join('brands', 'collections.brand_id', '=', 'brands.id')
             ->join('order_items', 'products.id', '=', 'order_items.product_id')
@@ -110,9 +110,11 @@ class ReportController extends Controller
             ->when(request('collection_id') && !empty(request('collection_id')),function ($qq){
                 $qq->where('collections.id', request('collection_id'));
             })
-            ->groupBy('products.name')
+            ->groupBy('products.id', 'products.name')
             ->orderByDesc('purchase_count')
             ->get();
+
+
 
         $page_breadcrumbs = [
             ['page' => route('dashboard.index'), 'title' => 'Home', 'active' => true],
@@ -126,6 +128,26 @@ class ReportController extends Controller
             'brands' => Brand::query()->get(),
             'collections' => Collection::query()->get(),
 
+        ]);
+    }
+
+    public function productsPurchaseDetails(Request $request){
+        $product_id = $request->get('product_id');
+        $productColorPurchase = OrderItem::query()
+            ->select(
+                'products.name as product_name',
+                'order_items.color',
+                DB::raw('count(*) as purchase_count')
+            )
+            ->join('products', 'order_items.product_id', '=', 'products.id')
+            ->where('order_items.product_id',$product_id)
+            ->groupBy('products.name', 'order_items.color')
+            ->orderBy('product_name')
+            ->orderBy('color')
+            ->get();
+        return response()->json([
+           'status'=>true,
+           'items' =>$productColorPurchase
         ]);
     }
 

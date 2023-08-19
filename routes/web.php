@@ -127,6 +127,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/customers', [ReportController::class, 'customers'])->name('reports.customers');
             Route::get('/brands', [ReportController::class, 'brands'])->name('reports.brands');
             Route::get('/products', [ReportController::class, 'products'])->name('reports.products');
+            Route::post('/products', [ReportController::class, 'productsPurchaseDetails'])->name('reports.products.purchase_details');
         });
 
 

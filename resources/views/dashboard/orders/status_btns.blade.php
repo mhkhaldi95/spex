@@ -1,54 +1,80 @@
 @php
-   use \App\Constants\Enum;
+    use \App\Constants\Enum;
 @endphp
-@if($item->status == Enum::NEW)
-    <form action="{{route('orders.changeStatus',$item->id)}}" method="post">
-        @csrf
+
+<form action="{{route('orders.changeStatus',$item->id)}}" method="post" id="form">
+    @csrf
+    @if($item->status == Enum::NEW)
         <input type="hidden" name="status" value="{{Enum::PREPARATION}}">
-        <button  type="submit" class="btn btn-warning">
+        <button type="submit" class="btn btn-warning">
                 <span class="indicator-label">
                   Convert-> {{ucwords(Enum::PREPARATION)}}
                 </span>
         </button>
-    </form>
     @elseif($item->status == Enum::PREPARATION)
-    <form action="{{route('orders.changeStatus',$item->id)}}" method="post">
         @csrf
         <input type="hidden" name="status" value="{{Enum::SHIPPED}}">
-        <button  type="submit" class="btn btn-secondary">
+        <a href="javascript:void(0)" class="btn btn-danger return-back" data-status="{{Enum::NEW}}">
+                <span class="indicator-label">
+                 {{ucwords(Enum::NEW)}} <- Back
+                </span>
+        </a>
+        <button type="submit" class="btn btn-secondary">
                 <span class="indicator-label">
                   Convert-> {{ucwords(Enum::SHIPPED)}}
                 </span>
         </button>
-    </form>
     @elseif($item->status == Enum::SHIPPED)
-    <form action="{{route('orders.changeStatus',$item->id)}}" method="post">
         @csrf
         <input type="hidden" name="status" value="{{Enum::CLEARANCE}}">
-        <button  type="submit" class="btn btn-dark">
+        <a href="javascript:void(0)" class="btn btn-danger return-back" data-status="{{Enum::PREPARATION}}">
+                <span class="indicator-label">
+                 {{ucwords(Enum::PREPARATION)}} <- Back
+                </span>
+        </a>
+        <button type="submit" class="btn btn-dark">
                 <span class="indicator-label">
                   Convert-> {{ucwords(Enum::CLEARANCE)}}
                 </span>
         </button>
-    </form>
     @elseif($item->status == Enum::CLEARANCE)
-    <form action="{{route('orders.changeStatus',$item->id)}}" method="post">
         @csrf
         <input type="hidden" name="status" value="{{Enum::DELIVERING}}">
-        <button  type="submit" class="btn btn-info">
+        <a href="javascript:void(0)" class="btn btn-danger return-back" data-status="{{Enum::SHIPPED}}">
+                <span class="indicator-label">
+                 {{ucwords(Enum::SHIPPED)}} <- Back
+                </span>
+        </a>
+        <button type="submit" class="btn btn-info">
                 <span class="indicator-label">
                   Convert-> {{ucwords(Enum::DELIVERING)}}
                 </span>
         </button>
-    </form>
     @elseif($item->status == Enum::DELIVERING)
-    <form action="{{route('orders.changeStatus',$item->id)}}" method="post">
         @csrf
         <input type="hidden" name="status" value="{{Enum::DELIVERED}}">
-        <button  type="submit" class="btn btn-success">
+
+        <a href="javascript:void(0)" class="btn btn-danger return-back" data-status="{{Enum::CLEARANCE}}">
+                <span class="indicator-label">
+                 {{ucwords(Enum::CLEARANCE)}} <- Back
+                </span>
+        </a>
+        <button type="submit" class="btn btn-success">
                 <span class="indicator-label">
                   Convert-> {{ucwords(Enum::DELIVERED)}}
                 </span>
         </button>
-    </form>
-@endif
+    @endif
+</form>
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.return-back').click(function () {
+                var status = $(this).data('status');
+                $(this).closest('form').find('input[name="status"]').val(status);
+                $('#form').submit()
+            })
+        })
+    </script>
+@endsection
