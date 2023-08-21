@@ -17,7 +17,7 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container-xxl customer-reports">
 
-            <div class="card mb-4">
+            <div class="card mb-4 p-5">
                 <div class="card-body">
                     <form action="{{route('reports.brands')}}">
                         <div class="row g-5 g-xl-8">

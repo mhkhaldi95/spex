@@ -7,30 +7,12 @@
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
         <a href="#">
-            <img alt="Logo" src="{{asset('')}}assets/media/logo.png" class="logo" style="width: 100%;height: 65px"/>
+            Al-Afaq Eyewear
         </a>
         <!--end::Logo-->
-        <!--begin::Aside toggler-->
-        <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
-             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
-             data-kt-toggle-name="aside-minimize">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->
-            <span class="svg-icon svg-icon-1 rotate-180">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none">
-									<path opacity="0.5"
-                                          d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z"
-                                          fill="black"/>
-									<path
-                                        d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z"
-                                        fill="black"/>
-								</svg>
-							</span>
-            <!--end::Svg Icon-->
-        </div>
-        <!--end::Aside toggler-->
     </div>
     <!--end::Brand-->
+    <div class="separator my-2"></div>
     <!--begin::Aside menu-->
     <div class="aside-menu flex-column-fluid">
         <!--begin::Aside Menu-->
@@ -51,20 +33,14 @@
                     <div class="menu-sub menu-sub-accordion show">
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
 											<span class="menu-link">
-											<span class="svg-icon svg-icon-2 ">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none">
-													<rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"/>
-													<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
-                                                          fill="currentColor"/>
-													<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
-                                                          fill="currentColor"/>
-													<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
-                                                          fill="currentColor"/>
-												</svg>
-											</span>
+											<!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-07-21-074234/core/html/src/media/icons/duotune/general/gen001.svg-->
+<span class="svg-icon svg-icon-muted svg-icon-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="currentColor"/>
+</svg>
+</span>
+                                                <!--end::Svg Icon-->
 												<a  href="{{route('dashboard.index')}}"
-                                                   class="menu-title">Home</a>
+                                                   class="menu-title mx-2">Home</a>
 											</span>
 
                         </div>
@@ -98,7 +74,7 @@
                                                         fill="currentColor"/>
 												</svg>
 											</span>
-												<span class="menu-title">Orders</span>
+												<span class="menu-title mx-2">Orders</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -123,13 +99,13 @@
                     <div class="menu-sub menu-sub-accordion show">
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
 											<span class="menu-link">
-                                                <span class="svg-icon svg-icon-2 ">
+                                                <span class="svg-icon svg-icon-muted svg-icon-2 ">
 											<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg {
-                                                        fill: #e6e9ef
+                                                        fill: #a1a5b7 !important;
                                                     }</style><path
                                                     d="M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0H109.6C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9l-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3V384H128V250.6c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3V384v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V384 252.6c-4 1-8 1.8-12.3 2.3z"/></svg>
 											</span>
-												<span class="menu-title">Products</span>
+												<span class="menu-title mx-2">Products</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -156,7 +132,7 @@
 												     <span class="svg-icon svg-icon-2 ">
                                                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#d9dee8}</style><path d="M388.32,104.1a4.66,4.66,0,0,0-4.4-4c-2,0-37.23-.8-37.23-.8s-21.61-20.82-29.62-28.83V503.2L442.76,472S388.72,106.5,388.32,104.1ZM288.65,70.47a116.67,116.67,0,0,0-7.21-17.61C271,32.85,255.42,22,237,22a15,15,0,0,0-4,.4c-.4-.8-1.2-1.2-1.6-2C223.4,11.63,213,7.63,200.58,8c-24,.8-48,18-67.25,48.83-13.61,21.62-24,48.84-26.82,70.06-27.62,8.4-46.83,14.41-47.23,14.81-14,4.4-14.41,4.8-16,18-1.2,10-38,291.82-38,291.82L307.86,504V65.67a41.66,41.66,0,0,0-4.4.4S297.86,67.67,288.65,70.47ZM233.41,87.69c-16,4.8-33.63,10.4-50.84,15.61,4.8-18.82,14.41-37.63,25.62-50,4.4-4.4,10.41-9.61,17.21-12.81C232.21,54.86,233.81,74.48,233.41,87.69ZM200.58,24.44A27.49,27.49,0,0,1,215,28c-6.4,3.2-12.81,8.41-18.81,14.41-15.21,16.42-26.82,42-31.62,66.45-14.42,4.41-28.83,8.81-42,12.81C131.33,83.28,163.75,25.24,200.58,24.44ZM154.15,244.61c1.6,25.61,69.25,31.22,73.25,91.66,2.8,47.64-25.22,80.06-65.65,82.47-48.83,3.2-75.65-25.62-75.65-25.62l10.4-44s26.82,20.42,48.44,18.82c14-.8,19.22-12.41,18.81-20.42-2-33.62-57.24-31.62-60.84-86.86-3.2-46.44,27.22-93.27,94.47-97.68,26-1.6,39.23,4.81,39.23,4.81L221.4,225.39s-17.21-8-37.63-6.4C154.15,221,153.75,239.8,154.15,244.61ZM249.42,82.88c0-12-1.6-29.22-7.21-43.63,18.42,3.6,27.22,24,31.23,36.43Q262.63,78.68,249.42,82.88Z"/></svg>
 									                </span>
-												<span class="menu-title">Brands</span>
+												<span class="menu-title mx-2 ">Brands</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -183,7 +159,7 @@
                                                      <span class="svg-icon svg-icon-2 ">
                                                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#e3e9f2}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
                                                      </span>
-												<span class="menu-title">Collections</span>
+												<span class="menu-title mx-2 ">Collections</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -219,7 +195,7 @@
                                                 <span class="svg-icon svg-icon-2 ">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#d1daea}</style><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24V64 350.5 400v88c0 13.3 10.7 24 24 24s24-10.7 24-24V388l80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52V24zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8V334.7l-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5v-237z"/></svg>
                                                 </span>
-												<span class="menu-title">Customers Reports</span>
+												<span class="menu-title mx-2 ">Customers Reports</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -238,7 +214,7 @@
                                               <span class="svg-icon svg-icon-2 ">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#d1daea}</style><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24V64 350.5 400v88c0 13.3 10.7 24 24 24s24-10.7 24-24V388l80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52V24zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8V334.7l-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5v-237z"/></svg>
                                                 </span>
-												<span class="menu-title">Brands Reports</span>
+												<span class="menu-title mx-2 ">Brands Reports</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -257,7 +233,7 @@
                                                 <span class="svg-icon svg-icon-2 ">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#d1daea}</style><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24V64 350.5 400v88c0 13.3 10.7 24 24 24s24-10.7 24-24V388l80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52V24zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8V334.7l-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5v-237z"/></svg>
                                                 </span>
-												<span class="menu-title">Products Reports</span>
+												<span class="menu-title mx-2 ">Products Reports</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -293,7 +269,7 @@
                                                         fill="currentColor"/>
 												</svg>
 											</span>
-												<span class="menu-title">Admins</span>
+												<span class="menu-title mx-2">Admins</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -330,7 +306,7 @@
                                                         fill="currentColor"/>
 												</svg>
 											</span>
-												<span class="menu-title">Customers</span>
+												<span class="menu-title mx-2">Customers</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -366,7 +342,7 @@
 							<span class="svg-icon  svg-icon-2x svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#e3e7ed}</style><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM229.5 173.3l72 144c5.9 11.9 1.1 26.3-10.7 32.2s-26.3 1.1-32.2-10.7L253.2 328H162.8l-5.4 10.7c-5.9 11.9-20.3 16.7-32.2 10.7s-16.7-20.3-10.7-32.2l72-144c4.1-8.1 12.4-13.3 21.5-13.3s17.4 5.1 21.5 13.3zM208 237.7L186.8 280h42.3L208 237.7zM392 256a24 24 0 1 0 0 48 24 24 0 1 0 0-48zm24-43.9V184c0-13.3 10.7-24 24-24s24 10.7 24 24v96 48c0 13.3-10.7 24-24 24c-6.6 0-12.6-2.7-17-7c-9.4 4.5-19.9 7-31 7c-39.8 0-72-32.2-72-72s32.2-72 72-72c8.4 0 16.5 1.4 24 4.1z"/></svg>
                             </span>
-												<span class="menu-title">Advertisements</span>
+												<span class="menu-title mx-2 ">Advertisements</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -403,7 +379,7 @@
             fill="#000000"/>
     </g>
 </svg><!--end::Svg Icon--></span>
-												<span class="menu-title">Settings</span>
+												<span class="menu-title mx-2">Settings</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">
@@ -433,7 +409,7 @@
             fill="#000000" opacity="0.3"/>
     </g>
 </svg><!--end::Svg Icon--></span>
-												<span class="menu-title">Activity Logs</span>
+												<span class="menu-title mx-2">Activity Logs</span>
 												<span class="menu-arrow"></span>
 											</span>
                             <div class="menu-sub menu-sub-accordion">

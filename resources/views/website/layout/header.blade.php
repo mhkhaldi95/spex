@@ -12,9 +12,9 @@
     <div class="axil-mainmenu pt-5">
         <div class="container">
             <div class="header-navbar">
-                <div class="header-brand" >
+                <div class="header-brand" style="transform: scale(0.5)" >
                     <a href="index.html" class="logo" >
-                        <img src="{{asset('')}}website/assets/images/logo/logo.png" alt="Site Logo">
+                        <img src="{{asset('')}}website/assets/images/logo/logo3.png" alt="Site Logo">
                     </a>
                 </div>
                 <div class="header-main-nav">
