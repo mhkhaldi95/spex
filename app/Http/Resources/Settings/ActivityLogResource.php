@@ -14,8 +14,13 @@ class ActivityLogResource extends JsonResource
      */
     public function toArray($request)
     {
-        $subject_name = explode('\\', get_class($this->subject));
-        $subject_name = $subject_name[count($subject_name)-1];
+        if($this->subject){
+            $subject_name = explode('\\', get_class($this->subject));
+            $subject_name = $subject_name[count($subject_name)-1];
+        }else{
+            $subject_name = '--';
+        }
+
         return [
             'log_name' => $this->log_name,
             'properties' => $this->convertProperties($this->properties)[0],

@@ -20,7 +20,6 @@ class ProductController extends Controller
     public function show($id){
 
        $product =  Product::query()->findOrFail($id);
-       dd($product->variations);
         return view('website.product', [
             'page_title' =>'Product',
             'product' =>$product,
