@@ -1,3 +1,16 @@
+@php
+    use \App\Models\Cart;
+    use \App\Models\Collection;
+    use \App\Models\Brand;
+    $cart_count = 0;
+    if(auth()->check()){
+        $cart = Cart::query()->firstOrCreate(['user_id' => auth()->id()]);
+        $cart_count = $cart->items->count();
+    }
+    $collections = Collection::query()->active()->get();
+    $brands = Brand::query()->active()->get();
+
+@endphp
 <header class="header axil-header header-style-1">
     <div class="header-top-campaign py-3">
         <div class="container position-relative">
@@ -13,7 +26,7 @@
         <div class="container">
             <div class="header-navbar">
                 <div class="header-brand" style="transform: scale(0.5)" >
-                    <a href="index.html" class="logo" >
+                    <a href="#" class="logo" >
                         <img src="{{asset('')}}website/assets/images/logo/logo3.png" alt="Site Logo">
                     </a>
                 </div>
@@ -22,23 +35,26 @@
                     <nav class="mainmenu-nav">
                         <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
                         <div class="mobile-nav-brand">
-                            <a href="index.html" class="logo">
-                                <img src="assets/images/logo/logo.png" alt="Site Logo">
+                            <a href="#" class="logo">
+                                <img src="{{asset('')}}assets/images/logo/logo.png" alt="Site Logo">
                             </a>
                         </div>
                         <ul class="mainmenu">
                             <li class="menu-item-has-children menu-item-open">
                                 <a href="#">Brands</a>
                                 <ul class="axil-submenu">
-                                    <li><a href="#" class="active">Brand One</a></li>
-                                    <li><a href="#">Brand Two</a></li>
+                                    @foreach($brands as $brand)
+{{--                                    <li><a href="#" class="active">Brand One</a></li>--}}
+                                    <li><a href="{{route('site.brands.collections',$brand->id)}}">{{$brand->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">Collections</a>
                                 <ul class="axil-submenu">
-                                    <li><a href="#">Collection One</a></li>
-                                    <li><a href="#">Collection Two</a></li>
+                                    @foreach($collections as $collection)
+                                    <li><a href="{{route('site.collections.products',$collection->id)}}">{{$collection->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li><a href="about-us.html">About Us</a></li>
@@ -50,8 +66,9 @@
                 <div class="header-action">
                     <ul class="action-list">
                         <li class="shopping-cart">
-                            <a href="#" class="cart-dropdown-btn">
-                                <span class="cart-count">3</span>
+
+                            <a href="{{auth()->check()?route('site.cart'):route('login')}}" class="cart-dropdown-btn">
+                                <span class="cart-count" id="cart-count">{{$cart_count}}</span>
                                 <i class="flaticon-shopping-cart"></i>
                             </a>
                         </li>
@@ -62,10 +79,12 @@
                             <div class="my-account-dropdown">
                                 <ul>
                                     <li>
-                                        <a href="my-account.html">My Account</a>
+                                        <a href="{{auth()->check()?route('site.cart'):route('login')}}">My Account</a>
                                     </li>
                                     <li>
-                                        <a href="my-account.html">Logout</a>
+                                        <a href="{{auth()->check()?route('logout'):route('login')}}">
+                                            {{auth()->check()?'Logout':'Sign in'}}
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

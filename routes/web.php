@@ -49,12 +49,13 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
     Route::post('custom-login', [LoginController::class, 'login'])->name('custom-login');
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::group(['prefix' => 'auth'], function () {
+        Route::get('logout', [LoginController::class, 'logout'])->name('logout')->withoutMiddleware('admin');
+    });
     Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
-        Route::group(['prefix' => 'auth'], function () {
-            Route::get('logout', [LoginController::class, 'logout'])->name('logout')->withoutMiddleware('admin');
-        });
+
 
 
         Route::get('{id}/account', [AccountSettingsController::class, 'create'])->name('admins.account.create')->withoutMiddleware('admin');

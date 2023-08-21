@@ -22,6 +22,10 @@ class LoginController extends Controller
                 return redirect()->route('dashboard.index')->with([
                     'success' => 'Login Successfully'
                 ]);
+            }elseif(in_array(auth()->user()->role,[Enum::CUSTOMER]) ){
+                return redirect()->route('site.brands.index')->with([
+                    'success' => 'Login Successfully'
+                ]);
             }
 
         }

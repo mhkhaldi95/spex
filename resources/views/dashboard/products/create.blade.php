@@ -303,13 +303,14 @@
                                                 <!--begin::Table body-->
                                                 <tbody>
                                                 @if(isset($item) && isset($item['variations']))
-                                                    @foreach($item['variations'] as $index=>$variations)
-                                                    <tr class="tr_variation_color" id="tr_{{$index}}">
+                                                    @foreach($item['variations'] as $index=>$variations)<tr class="tr_variation_color" id="tr_{{$index}}">
                                                         <td>{{$variations['color']}} <input type="hidden" name="colors[]" value="{{$variations['color']}}"></td>
                                                         <td>  <input type="number" value="{{$variations['price']}}" class="form-control mw-100 w-200px h-50 " id="price_{{$index}}" name="prices[]" placeholder="price" /></td>
                                                         <td class="text-end"><input type="number" value="{{$variations['stoke']}}" class="form-control mw-100 w-200px h-50 " id="stoke_{{$index}}" name="stokes[]" placeholder="stoke" /></td>
                                                         <td class="text-end">
                                                             <input type="file" name="product_color_image[]"    accept=".png, .jpg, .jpeg" />
+                                                            <input type="hidden" name="product_color_image_hidden[]" id="product_color_image_hidden_{{$index}}" value="{{$variations['image']}}" />
+
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -348,7 +349,7 @@
                                             <div class="parent_div_photo" id="photo_{{$image['id']}}">
                                                 <div class="image-input image-input-empty image-input-outline product-image" id="avatar"
                                                 >
-                                                    <div class="image-input-wrapper bg-img" style="background-image: url({{ asset('storage/product-images/'.$image['name']) }})"></div>
+                                                    <div class="image-input-wrapper bg-img" style="background-image: url({{ $image['image'] }})"></div>
                                                     <label
                                                         class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow remove_photo"
                                                         data-photo_id="{{$image['id']}}"
@@ -356,10 +357,10 @@
                                                         data-original-title="Change image">
                                                         <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-07-21-074234/core/html/src/media/icons/duotune/arrows/arr015.svg-->
                                                         <span class="svg-icon svg-icon-2hx svg-icon-danger"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.3 16.5 8.5 16.5C8.7 16.5 8.99999 16.4 9.19999 16.2L12 13.4L10.6 12Z" fill="currentColor"/>
-<path d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM13.4 12L16.2 9.20001C16.6 8.80001 16.6 8.19999 16.2 7.79999C15.8 7.39999 15.2 7.39999 14.8 7.79999L12 10.6L9.2 7.79999C8.8 7.39999 8.2 7.39999 7.8 7.79999C7.4 8.19999 7.4 8.80001 7.8 9.20001L10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.3 16.5 8.5 16.5C8.7 16.5 9 16.4 9.2 16.2L12 13.4L14.8 16.2C15 16.4 15.3 16.5 15.5 16.5C15.7 16.5 16 16.4 16.2 16.2C16.6 15.8 16.6 15.2 16.2 14.8L13.4 12Z" fill="currentColor"/>
-</svg>
-</span>
+                                                        <path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.3 16.5 8.5 16.5C8.7 16.5 8.99999 16.4 9.19999 16.2L12 13.4L10.6 12Z" fill="currentColor"/>
+                                                        <path d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM13.4 12L16.2 9.20001C16.6 8.80001 16.6 8.19999 16.2 7.79999C15.8 7.39999 15.2 7.39999 14.8 7.79999L12 10.6L9.2 7.79999C8.8 7.39999 8.2 7.39999 7.8 7.79999C7.4 8.19999 7.4 8.80001 7.8 9.20001L10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.3 16.5 8.5 16.5C8.7 16.5 9 16.4 9.2 16.2L12 13.4L14.8 16.2C15 16.4 15.3 16.5 15.5 16.5C15.7 16.5 16 16.4 16.2 16.2C16.6 15.8 16.6 15.2 16.2 14.8L13.4 12Z" fill="currentColor"/>
+                                                        </svg>
+                                                        </span>
                                                         <!--end::Svg Icon-->
                                                     </label>
 
@@ -508,6 +509,8 @@
         $(document).ready(function() {
             // Add variant details to the table
 
+
+
             $(document).on('click', '.delete-variations', function (e) {
 
 
@@ -522,6 +525,7 @@
                     $(`#tr_${i}`).attr('id', `tr_${i-1}`);
                     $(`#stoke_${i}`).attr('id', `stoke_${i-1}`);
                     $(`#price_${i}`).attr('id', `price_${i-1}`);
+                    $(`#product_color_image_hidden_${i}`).attr('id', `product_color_image_hidden_${i-1}`);
                 }
 
 
@@ -536,6 +540,7 @@
                     var color = $(this).val();
                     var price = $(`#price_${index}`).val();
                     var stoke = $(`#stoke_${index}`).val();
+                    var product_color_image_hidden = $(`#product_color_image_hidden_${index}`).val();
 
                     // If color is not empty, add a new row to the table
                     if (color !== '') {
@@ -546,6 +551,8 @@
                     <td class="text-end"><input type="number" value="${stoke}" class="form-control mw-100 w-200px h-50 " id="stoke_${index}" name="stokes[]" placeholder="stoke" /></td>
                     <td class="text-end">
                           <input type="file" name="product_color_image[]"    accept=".png, .jpg, .jpeg" />
+                          <input type="hidden" name="product_color_image_hidden[]"    value="${product_color_image_hidden}" />
+
                  </td>
              </tr>
 `;

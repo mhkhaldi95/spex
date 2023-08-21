@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Website\BrandController;
 
+use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CollectionController;
 use App\Http\Controllers\Website\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/{id}/show', [ProductController::class, 'show'])->name('site.products.show');;
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
-
+    Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');;
+    Route::get('cart', [CartController::class, 'index'])->name('site.cart');;
 });
 

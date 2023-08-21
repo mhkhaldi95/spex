@@ -10,14 +10,14 @@ class ProductVariants extends Model
 {
     use HasFactory,SystemLog;
     const FILLABLE = ['product_id','image','stoke','price','color'];
-
+    protected $appends = ['image_path'];
     protected $fillable = self::FILLABLE;
 
-    public function getImageAttribute($value)
+    public function getImagePathAttribute()
     {
-        if ($value == 'default.png') {
+        if ($this->image == 'default.png') {
             return asset('assets/media/default.png');
         }
-        return asset('storage/product_color_image/' . $value);
+        return asset('storage/product_color_image/' . $this->image);
     }
 }

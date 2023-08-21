@@ -10,13 +10,14 @@ class ProductImage extends Model
 {
     use HasFactory,SystemLog;
     const FILLABLE = ['name','product_id'];
+     protected $appends = ['image'];
 
     protected $fillable = self::FILLABLE;
-    public function getImageAttribute($value)
+    public function getImageAttribute()
     {
-        if ($value == 'default.png') {
+        if ($this->name == 'default.png') {
             return asset('assets/media/default.png');
         }
-        return asset('storage/product-images/' . $value);
+        return asset('storage/product-images/' . $this->name);
     }
 }

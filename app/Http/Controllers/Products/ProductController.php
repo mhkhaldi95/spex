@@ -91,19 +91,18 @@ class ProductController extends Controller
 
             foreach ($request->get('colors',[]) as $index => $color){
                 $product_color_image = null;
-                if(request('product_color_image') && request('product_color_image')[$index]){
+                if(request('product_color_image') && isset(request('product_color_image')[$index])){
                     $product_color_image =  uploadFile2(request('product_color_image')[$index],'product_color_image');
+                }else{
+                    $product_color_image = request('product_color_image_hidden')[$index];
                 }
-                $data = [
+                ProductVariants::create([
                     'product_id' => $item->id,
                     'color' => $color,
                     'price' => request('prices')[$index]??0,
                     'stoke' => request('stokes')[$index]??0,
-                ];
-                if(!is_null($product_color_image)){
-                    $data['image'] =  $product_color_image;
-                }
-                ProductVariants::create($data);
+                    'image' => $product_color_image,
+                ]);
             }
 
 

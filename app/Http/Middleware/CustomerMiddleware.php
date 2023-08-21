@@ -20,6 +20,6 @@ class CustomerMiddleware
     {
         if(!Auth::check() || (Auth::check() && in_array(\auth()->user()->role,[Enum::CUSTOMER])))
                  return $next($request);
-             return redirect()->route('website.brands');
+             return back();
     }
 }

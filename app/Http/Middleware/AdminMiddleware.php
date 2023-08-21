@@ -20,6 +20,6 @@ class AdminMiddleware
     {
         if(Auth::check() && in_array(\auth()->user()->role,[Enum::ADMIN,Enum::SUPER_ADMIN]))
                  return $next($request);
-             return redirect()->route('places.trips.index');
+             return back();
     }
 }

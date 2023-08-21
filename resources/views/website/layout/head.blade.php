@@ -24,4 +24,7 @@
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/style.min.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/custom.css">
 
-@yield('head')
+    <script src="{{asset('')}}assets/plugins/global/axios.js"></script>
+
+
+    @yield('head')

@@ -20,10 +20,7 @@
     margin-left: 10px;
     margin-bottom: 39px;
 }
-.remove_photo{
-    position: relative;
-    right: 30%;
-}
+
 .product-image{
     height: 120px;
     background-color: #f9f7f6;
@@ -64,5 +61,8 @@
     height: 460px !important;
 }
 
+.remove_photo{
+    margin: 0 30%;
+}
 
 
