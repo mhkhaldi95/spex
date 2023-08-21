@@ -21,7 +21,15 @@ class CartController extends Controller
 
     public function index(){
         $cart = Cart::query()->firstOrCreate(['user_id' => auth()->id()]);
-        return view('website.cart');
+        return view('website.cart',[
+            'cart' => $cart
+        ]);
+    }
+    public function productRemove($id){
+        $item = CartItem::query()->where('id',$id)->firstOrFail();
+        $item->delete();
+
+        return $this->returnBackWithRemoveCartDone();
     }
 
     public function addToCart(Request $request)
@@ -40,7 +48,10 @@ class CartController extends Controller
                 $newQtys[] = $qtys[$i];
                 $newColors[] = $colors[$i];
                 $newPrices[] = $prices[$i];
-                $newImages[] = $images[$i];
+                if(!$request->from_cart){
+                    $newImages[] = $images[$i];
+                }
+
             }
         }
 
@@ -59,11 +70,20 @@ class CartController extends Controller
             ])->first();
 
             if ($existingCartItem) {
-                $existingCartItem->update([
-                    'qty' => $existingCartItem->qty + $qtys[$i],
+                if($request->from_cart){
+                    $qty = $qtys[$i];
+                }else{
+                    $qty = $existingCartItem->qty + $qtys[$i];
+                }
+
+                $data = [
+                    'qty' => $qty,
                     'price' => $prices[$i],
-                    'image' => $images[$i],
-                ]);
+                ];
+                if(!$request->from_cart){
+                    $data['image'] = $images[$i];
+                }
+                $existingCartItem->update($data);
             } else {
                 CartItem::create([
                     'product_id' => $request->product_id,

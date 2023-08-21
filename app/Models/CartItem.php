@@ -35,7 +35,7 @@ class CartItem extends Model
         if($value == 'default.png'){
             return asset('assets/media/default.png');
         }
-        return asset('storage/product-images/'.$value);
+        return asset('storage/product_color_image/'.$value);
     }
 
 

@@ -44,6 +44,12 @@ class Controller extends BaseController
             'alert-type' => 'success'
         ]);
     }
+    public function returnBackWithRemoveCartDone(){
+        return back()->with([
+            'message' => 'Remove From Cart Successfully',
+            'alert-type' => 'success'
+        ]);
+    }
     public function returnBackWithPaymentDone(){
         return redirect()->route('break.index')->with([
             'message' => __('payment_done'),

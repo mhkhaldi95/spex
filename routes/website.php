@@ -35,5 +35,6 @@ Route::group(['prefix' => 'products'], function () {
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');;
     Route::get('cart', [CartController::class, 'index'])->name('site.cart');;
+    Route::get('cart/product-remove/{id}', [CartController::class, 'productRemove'])->name('site.cart.product-remove');;
 });
 
