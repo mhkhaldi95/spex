@@ -94,13 +94,16 @@ class ProductController extends Controller
                 if(request('product_color_image') && request('product_color_image')[$index]){
                     $product_color_image =  uploadFile2(request('product_color_image')[$index],'product_color_image');
                 }
-                ProductVariants::create([
+                $data = [
                     'product_id' => $item->id,
                     'color' => $color,
                     'price' => request('prices')[$index]??0,
                     'stoke' => request('stokes')[$index]??0,
-                    'image' => $product_color_image,
-                ]);
+                ];
+                if(!is_null($product_color_image)){
+                    $data['image'] =  $product_color_image;
+                }
+                ProductVariants::create($data);
             }
 
 
@@ -142,8 +145,10 @@ class ProductController extends Controller
             'product_id' => ['required', 'exists:products,id' ,'numeric']
         ]);
         $photo = ProductImage::where('product_id',$request->product_id)->where('id',$request->photo_id)->first();
-        if($photo){
-            unlink(base_path().'/storage/app/public/product-images/'. $photo->name);
+        if($photo ){
+            if($photo->name !='default.png'){
+                unlink(base_path().'/storage/app/public/product-images/'. $photo->name);
+            }
             $photo->delete();
             return response()->json([
                 'status' => true,

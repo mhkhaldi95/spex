@@ -41,6 +41,9 @@ class Collection extends Model
     public function brand(){
         return $this->belongsTo(Brand::class);
     }
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 
     public function scopeActive($q){
         $q->where('is_deleted',0);

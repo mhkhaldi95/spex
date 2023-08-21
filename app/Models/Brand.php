@@ -38,6 +38,9 @@ class Brand extends Model
     public function collections(){
         return $this->hasMany(Collection::class);
     }
+    public function scopeActive($q){
+        return $q->where('is_deleted',0);
+    }
     public function getImageAttribute($value)
     {
             if ($value == 'default.png') {

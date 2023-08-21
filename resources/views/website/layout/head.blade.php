@@ -22,5 +22,6 @@
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/base.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/style.min.css">
+    <link rel="stylesheet" href="{{asset('')}}website/assets/css/custom.css">
 
 @yield('head')

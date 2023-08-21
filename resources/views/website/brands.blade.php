@@ -7,28 +7,23 @@
                 <h3 class="title text-center">Our Brands</h3>
             </div>
             <div class="row">
-                <!-- Start Single Demo  -->
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="pv-single-demo">
-                        <div class="thumb box">
-                            <img src="{{asset('')}}website/assets/images/preview/home-07.png" alt="Most Unique eCommerce">
-                            <a href="index-7.html" class="axil-btn btn-bg-primary right-icon view-btn">View Demo <i class="fal fa-long-arrow-right"></i></a>
+                @foreach($brands as $brand)
+                    <!-- Start Single Demo  -->
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="pv-single-demo">
+                            <div class="thumb box">
+                                <div class="brand-image-parent">
+                                    <div class="brand-image-child" style="background-image: url('{{$brand->image}}')">
+                                    </div>
+                                </div>
+                                <a href="{{route('site.brands.collections',$brand->id)}}" class="axil-btn btn-bg-primary right-icon view-btn">Details <i
+                                        class="fal fa-long-arrow-right"></i></a>
+                            </div>
+                            <h5 class="title"><a href="{{route('site.brands.collections',$brand->id)}}">{{$brand->name}}</a></h5>
                         </div>
-                        <h5 class="title"><a href="index-7.html">Multipurpose</a></h5>
                     </div>
-                </div>
-                <!-- End Single Demo  -->
-                <!-- Start Single Demo  -->
-                <div class="col-lg-6 col-md-6 col-12">
-                    <div class="pv-single-demo p-10">
-                        <div class="thumb box">
-                            <img src="{{asset('')}}website/assets/images/preview/home-01.png" alt="Most Unique eCommerce">
-                            <a href="index-1.html" class="axil-btn btn-bg-primary right-icon view-btn">View Demo <i class="fal fa-long-arrow-right"></i></a>
-                        </div>
-                        <h5 class="title"><a href="index-1.html">Electronics</a></h5>
-                    </div>
-                </div>
-                <!-- End Single Demo  -->
+                    <!-- End Single Demo  -->
+                @endforeach
 
             </div>
         </div>

@@ -7,72 +7,27 @@
         <div class="axil-shop-area axil-section-gap bg-color-white">
             <div class="container">
                 <div class="section-title-wrapper">
-                    <h3 class="title text-center">[Brand] Collections</h3>
+                    <h3 class="title text-center">[{{$brand->name}}] Collections</h3>
                 </div>
                 <div class="row row--15">
+                    @foreach($collections as $collection)
                     <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
+                        <div class="pv-single-demo">
+                            <div class="thumb box">
+                                <div class="collection-image-parent">
+                                    <div class="collection-image-child" style="background-image: url('{{$collection->image}}')">
+                                    </div>
+                                </div>
+                                <a href="{{route('site.collections.products',$collection->id)}}" class="axil-btn btn-bg-primary right-icon view-btn">Details <i
+                                        class="fal fa-long-arrow-right"></i></a>
                             </div>
+                            <h5 class="title"><a href="{{route('site.collections.products',$collection->id)}}">{{$collection->name}}</a></h5>
                         </div>
                     </div>
+                    @endforeach
                     <!-- End Single Product  -->
-                    <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product  -->
-                    <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product  -->
-                    <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product  -->
-                    <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product  -->
-                    <div class="col-xl-4 col-lg-4 col-sm-6">
-                        <div class="axil-product product-style-one has-color-pick mt--40">
-                            <div class="thumbnail">
-                                <a href="single-product.html">
-                                    <img src="{{asset('')}}website/assets/images/product/electric/product-01.png" alt="Product Images">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product  -->
-                </div>
-                <div class="text-center pt--30">
-                    <a href="#" class="axil-btn btn-bg-lighter btn-load-more">Load more</a>
+
+
                 </div>
             </div>
             <!-- End .container -->

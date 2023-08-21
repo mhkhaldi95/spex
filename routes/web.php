@@ -40,19 +40,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/myaccount', function () {
-    return view('website.myaccount');
-});
 
-Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
-    Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
-        Route::get('login', [LoginController::class, 'index'])->name('login');
-        Route::post('custom-login', [LoginController::class, 'login'])->name('custom-login');
-    });
+
+
+Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('custom-login', [LoginController::class, 'login'])->name('custom-login');
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
@@ -121,7 +115,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/create/{id?}', [AdvertisementController::class, 'create'])->name('advertisements.create');
             Route::post('/store/{id?}', [AdvertisementController::class, 'store'])->name('advertisements.store');
             Route::post('{id}/delete', [AdvertisementController::class, 'delete'])->name('advertisements.delete');
-       });
+        });
 
         Route::group(['prefix' => 'reports'], function () {
             Route::get('/customers', [ReportController::class, 'customers'])->name('reports.customers');
@@ -129,7 +123,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/products', [ReportController::class, 'products'])->name('reports.products');
             Route::post('/products', [ReportController::class, 'productsPurchaseDetails'])->name('reports.products.purchase_details');
         });
-
 
 
         Route::group(['prefix' => 'settings'], function () {
@@ -144,6 +137,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
 });
+
+
+include "website.php";
 
 Route::get('send-email', function () {
     $user = \Illuminate\Support\Facades\Auth::user(); // or fetch your user data

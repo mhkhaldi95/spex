@@ -12,4 +12,12 @@ class ProductVariants extends Model
     const FILLABLE = ['product_id','image','stoke','price','color'];
 
     protected $fillable = self::FILLABLE;
+
+    public function getImageAttribute($value)
+    {
+        if ($value == 'default.png') {
+            return asset('assets/media/default.png');
+        }
+        return asset('storage/product_color_image/' . $value);
+    }
 }

@@ -18,8 +18,8 @@ class CustomerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && \auth()->user()->role == Enum::CUSTOMER)
+        if(!Auth::check() || (Auth::check() && in_array(\auth()->user()->role,[Enum::CUSTOMER])))
                  return $next($request);
-             return abort(403);
+             return redirect()->route('website.brands');
     }
 }

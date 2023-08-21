@@ -12,4 +12,11 @@ class ProductImage extends Model
     const FILLABLE = ['name','product_id'];
 
     protected $fillable = self::FILLABLE;
+    public function getImageAttribute($value)
+    {
+        if ($value == 'default.png') {
+            return asset('assets/media/default.png');
+        }
+        return asset('storage/product-images/' . $value);
+    }
 }
