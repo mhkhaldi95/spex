@@ -16,7 +16,29 @@
 .svg-icon-2{
     margin-right: 3px !important;
 }
-.aside .aside-logo {
-    padding: 19px 25px 0 57px !important;
+
+.aside-menu .menu .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content, .aside-menu .menu .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link {
+    padding-left: calc(0.75rem + 20px) !important;
 }
 
+.page-item.active .page-link {
+    background-color: #0c3255 !important;
+}
+
+.nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item.show .nav-link, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled) {
+    border-bottom: 1px solid #000000;
+}
+
+.text-active-primary.active {
+    color: #000000 !important;
+}
+
+.widget{
+    padding: 20px !important;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100% !important;
+}

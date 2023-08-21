@@ -8,7 +8,7 @@
             <!--begin::Card-->
 
 
-            <div class="card">
+            <div class="card p-5">
                 <!--begin:::Tabs-->
                 <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 form p-4 fw-bold mb-n2">
                     <!--begin:::Tab item-->

@@ -44,9 +44,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/myaccount', function () {
-    return view('website.myaccount');
+
+
+Route::group(['prefix' => 'clients', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/cart', function () {
+        return view('website.cart');
+    });
 });
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
     Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {

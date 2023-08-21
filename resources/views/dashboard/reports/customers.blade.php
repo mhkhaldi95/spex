@@ -17,7 +17,7 @@
         <!--begin::Container-->
         <div id="kt_content_container" class="container-xxl customer-reports">
 
-            <div class="card mb-4">
+            <div class="card mb-4 p-5">
                 <div class="card-body">
                     <form action="{{route('reports.customers')}}">
                         <div class="row g-5 g-xl-8">
@@ -63,14 +63,14 @@
 
             </div>
             <!--begin::Row-->
-            <div class="card mt-1">
+            <div class="card p-5">
                 <div class="card-body">
                     <div class="row g-5 g-xl-8">
                         <div class="col-xl-4">
                             <!--begin::Statistics Widget 5-->
-                            <a href="#" class="card bg-info hoverable card-xl-stretch mb-xl-8">
+                            <a href="#" class="card bg-info hoverable card-xl-stretch">
                                 <!--begin::Body-->
-                                <div class="card-body">
+                                <div class="card-body widget ">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen008.svg-->
                                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                             </span>
@@ -86,9 +86,9 @@
                         </div>
                         <div class="col-xl-4">
                             <!--begin::Statistics Widget 5-->
-                            <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+                            <a href="#" class="card bg-primary hoverable card-xl-stretch">
                                 <!--begin::Body-->
-                                <div class="card-body">
+                                <div class="card-body widget">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen008.svg-->
                                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                             </span>
@@ -105,9 +105,9 @@
                         </div>
                         <div class="col-xl-4">
                             <!--begin::Statistics Widget 5-->
-                            <a href="#" class="card bg-success hoverable card-xl-stretch mb-xl-8">
+                            <a href="#" class="card bg-success hoverable card-xl-stretch">
                                 <!--begin::Body-->
-                                <div class="card-body">
+                                <div class="card-body widget">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen008.svg-->
                                     <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                             </span>
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="card mt-4">
                         <div class="card-body">
                             <h1> Orders</h1>
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="card mt-4">
                         <div class="card-body">
                             <h1> Products</h1>
@@ -288,7 +288,7 @@
             </div>
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="card mt-4">
                         <div class="card-body">
                             <h1> Collections</h1>
@@ -340,7 +340,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="card mt-4">
                         <div class="card-body">
                             <h1> Brands</h1>

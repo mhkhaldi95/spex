@@ -10,7 +10,7 @@
                     <!--begin::Container-->
                     <div id="kt_content_container" class="container-xxl">
                         <!--begin::Main column-->
-                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 mt-10">
+                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 mt-10 p-5">
                             <form id="kt_modal_add_user_form" class="form" method="POST"
                                   action="{{route('settings.store')}}" enctype="multipart/form-data">
                                 @include('dashboard.validation.alerts')

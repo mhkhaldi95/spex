@@ -47,15 +47,7 @@
                 <div class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative"
                      style="background-color: #093254;">
                     <!--begin::Wrapper-->
-                    <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
-                        <!--begin::Content-->
-                        <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-
-                            <h1 class="fw-bolder fs-2qx pb-5 pb-md-10"
-                                style="color: #AFB1B4;">{{getSettingByKey($settings,'site_name')->value }}</h1>
-
-                        </div>
-                        <!--end::Content-->
+                    <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y justify-content-center">
                         <!--begin::Illustration-->
                         <div
                             class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px"
@@ -70,7 +62,7 @@
                     <!--begin::Content-->
                     <div class="d-flex flex-center flex-column flex-column-fluid">
                         <!--begin::Wrapper-->
-                        <div class="w-lg-500px p-10 p-lg-15 mx-auto">
+                        <div class="w-lg-500px p-10 p-lg-15 w-100">
                             <!--begin::Form-->
                             <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="post"
                                   action="{{route('custom-login')}}">
@@ -78,7 +70,7 @@
                                 <!--begin::Heading-->
                                 <div class="text-center mb-10">
                                     <!--begin::Title-->
-                                    <h1 class="text-dark mb-3">{{__('signin')}}</h1>
+                                    <h1 class="text-dark mb-3">{{__('Sign In')}}</h1>
                                     <!--end::Title-->
                                 </div>
                                 <!--begin::Heading-->
@@ -88,7 +80,7 @@
                                     @include('dashboard.validation.session')
                                     @include('dashboard.validation.alerts')
                                     <!--begin::Label-->
-                                    <label class="form-label fs-6 fw-bolder text-dark">{{__('email')}}</label>
+                                    <label class="form-label fs-6 fw-bolder text-dark">{{__('Email')}}</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input class="form-control form-control-lg form-control-solid" type="text"
@@ -105,7 +97,7 @@
                                     <div class="d-flex flex-stack mb-2">
                                         <!--begin::Label-->
                                         <label
-                                            class="form-label fw-bolder text-dark fs-6 mb-0">{{__('password')}}</label>
+                                            class="form-label fw-bolder text-dark fs-6 mb-0">{{__('Password')}}</label>
                                     </div>
                                     <!--end::Wrapper-->
                                     <!--begin::Input-->
@@ -122,7 +114,7 @@
                                     {{--                            <!--begin::Submit button-->--}}
                                     <button type="submit" id="kt_sign_in_submits"
                                             class="btn btn-lg btn-primary w-100 mb-5">
-                                        <span class="indicator-label">{{__('signin')}}</span>
+                                        <span class="indicator-label">{{__('Sign In')}}</span>
                                         <span class="indicator-progress">Please wait...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                     </button>
