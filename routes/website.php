@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth:sanctum','customer']], function () {
     Route::get('cart/product-remove/{id}', [CartController::class, 'productRemove'])->name('site.cart.product-remove');;
 
     Route::post('orders/store', [OrderController::class, 'store'])->name('site.order.store');;
+    Route::get('orders/{id}/show', [OrderController::class, 'show'])->name('site.order.show');;
 
     Route::get('my-account', [AccountController::class, 'index'])->name('site.myaccount');;
     Route::post('my-account/update', [AccountController::class, 'update'])->name('site.myaccount.update');;

@@ -38,7 +38,7 @@
                                                 <td>{{$order->created_at}}</td>
                                                 <td>{{$order->status}}</td>
                                                 <td>${{$order->price}} for {{$order->items->count()}} items</td>
-                                                <td><a href="#" class="axil-btn view-btn">View</a></td>
+                                                <td><a href="{{route('site.order.show',$order->id)}}" class="axil-btn view-btn">View</a></td>
                                             </tr>
                                             @endforeach
                                             </tbody>

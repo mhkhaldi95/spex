@@ -31,6 +31,13 @@ class OrderController extends Controller
         ]);
     }
 
+    public function show($id){
+        $order = Order::query()->findOrFail($id);
+        return view('website.order',[
+            'order' => $order
+        ]);
+    }
+
 
     public function store(Request $request)
     {
