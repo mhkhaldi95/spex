@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MyEmail extends Mailable
+class OrderEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,17 +17,20 @@ class MyEmail extends Mailable
      * Create a new message instance.
      */
     public $user;
-    public function __construct($user)
+    public $order;
+    public function __construct($user,$order)
     {
         $this->user = $user;
+        $this->order = $order;
     }
 
     public function build()
     {
-        return $this->subject('Welcome to My App')
+        return $this->subject('New Order')
             ->view('email')
             ->with([
                 'user' => $this->user,
+                'order' => $this->order,
             ]);
     }
     /**

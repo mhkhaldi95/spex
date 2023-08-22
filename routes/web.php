@@ -142,13 +142,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 include "website.php";
 
-Route::get('send-email', function () {
-    $user = \Illuminate\Support\Facades\Auth::user(); // or fetch your user data
 
-    \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\MyEmail($user));
-
-    return "Email sent!";
-});
 Route::get('notifications/{id}/readAt', function ($id) {
 
     try {

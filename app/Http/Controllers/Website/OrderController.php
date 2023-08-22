@@ -7,6 +7,7 @@ use App\Constants\StatusCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brands\BrandRequest;
 use App\Http\Resources\Brands\BrandResource;
+use App\Mail\OrderEmail;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -16,6 +17,7 @@ use App\Models\ProductVariants;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 
 class OrderController extends Controller
@@ -97,6 +99,7 @@ class OrderController extends Controller
             $cart = Cart::query()->where('user_id' , auth()->id())->firstOrFail();
             $cart->items()->delete();
             $cart->delete();
+            Mail::to(env('MAIL_USERNAME'))->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
             return  $this->returnBackWithSaveDone();
         } catch (QueryException $exception) {
