@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -39,7 +40,8 @@ class OrderEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'My Email',
+            from: new Address('alnukhba.agency', 'Test Sender'),
+            subject: 'Test Email',
         );
     }
 
@@ -50,6 +52,11 @@ class OrderEmail extends Mailable
     {
         return new Content(
             view: 'email',
+            with: [
+                'user' => $this->user,
+                'order' => $this->order,
+            ],
+
         );
     }
 

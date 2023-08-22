@@ -99,7 +99,7 @@ class OrderController extends Controller
             $cart = Cart::query()->where('user_id' , auth()->id())->firstOrFail();
             $cart->items()->delete();
             $cart->delete();
-            Mail::to(env('MAIL_USERNAME'))->send(new OrderEmail(auth()->user(),$order));
+            Mail::to('mhkhaldi95@gmail.com')->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
             return  $this->returnBackWithSaveDone();
         } catch (QueryException $exception) {
