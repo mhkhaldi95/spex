@@ -293,7 +293,8 @@
                                                 <!--begin::Table head-->
                                                 <thead>
                                                 <tr class="border-0">
-                                                    <th class="p-0 min-w-70px">color</th>
+                                                    <th class="p-0 min-w-70px">Color Name</th>
+                                                    <th class="p-0 min-w-70px">Color Code</th>
                                                     <th class="p-0 min-w-70px">price</th>
                                                     <th class="p-0 min-w-70px">stoke</th>
                                                     <th class="p-0 min-w-70px">image</th>
@@ -305,6 +306,7 @@
                                                 @if(isset($item) && isset($item['variations']))
                                                     @foreach($item['variations'] as $index=>$variations)<tr class="tr_variation_color" id="tr_{{$index}}">
                                                         <td>{{$variations['color']}} <input type="hidden" name="colors[]" value="{{$variations['color']}}"></td>
+                                                        <td><input type="color"></td>
                                                         <td>  <input type="number" value="{{$variations['price']}}" class="form-control mw-100 w-200px h-50 " id="price_{{$index}}" name="prices[]" placeholder="price" /></td>
                                                         <td class="text-end"><input type="number" value="{{$variations['stoke']}}" class="form-control mw-100 w-200px h-50 " id="stoke_{{$index}}" name="stokes[]" placeholder="stoke" /></td>
                                                         <td class="text-end">
