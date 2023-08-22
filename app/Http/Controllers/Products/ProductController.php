@@ -100,6 +100,7 @@ class ProductController extends Controller
                     'product_id' => $item->id,
                     'color' => $color,
                     'price' => request('prices')[$index]??0,
+                    'color_code' => request('colors_code')[$index],
                     'stoke' => request('stokes')[$index]??0,
                     'image' => $product_color_image,
                 ]);

@@ -6,7 +6,7 @@
                 <div class="col-xl-12">
                     <div class="copyright-left d-flex flex-wrap justify-content-center">
                         <ul class="quick-link">
-                            <li>© 2023. All rights reserved by <a target="_blank" href="https://axilthemes.com/">Axilthemes</a>.</li>
+                            <li>© 2023. All rights reserved by <a target="_blank" href="#">Spex</a>.</li>
                         </ul>
                     </div>
                 </div>

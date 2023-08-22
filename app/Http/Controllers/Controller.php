@@ -19,6 +19,20 @@ class Controller extends BaseController
             'alert-type' => 'error'
         ]);
     }
+    public function outOfStoke($product_name,$color)
+    {
+        return back()->with([
+            'message' => $product_name.' '.$color.' Out Of Stoke',
+            'alert-type' => 'error'
+        ]);
+    }
+    public function returnBackWithPasswordFailed()
+    {
+        return back()->with([
+            'message' => 'Password Not Correct',
+            'alert-type' => 'error'
+        ]);
+    }
     public function invalidIntParameterJson(): JsonResponse
     {
         return response()->json([

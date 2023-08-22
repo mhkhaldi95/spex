@@ -223,11 +223,20 @@
                 var $button = $(this);
                 var oldValue = $button.parent().find('input').val();
                 if ($button.hasClass('inc')) {
-                    var newVal = parseFloat(oldValue) + 1;
+                    var stock = parseInt($button.parent().find('input').data('product-stoke'))
+                    console.log(stock)
+                    var newVal = 0;
+                    if((parseInt(oldValue) + 1) > stock){
+                         newVal = stock;
+                        toastr.warning("Out of Stoke");
+                    }else{
+                         newVal = parseFloat(oldValue) + 1;
+                    }
+
                 } else {
                     // Don't allow decrementing below zero
                     if (oldValue > 0) {
-                        var newVal = parseFloat(oldValue) - 1;
+                         newVal = parseFloat(oldValue) - 1;
                     } else {
                         newVal = 0;
                     }
@@ -1058,7 +1067,14 @@
 
         colorVariantActive: function() {
             $('.color-variant > li').on('click', function(e) {
+               var code_color =  $(this).data('code-color');
                 $(this).addClass('active').siblings().removeClass('active');
+
+                $('.color-variant > li span').css('border-color', 'transparent');
+
+                // $(this).css('border-color', code_color);
+                $(this).find('span:first-child').css('border-color', code_color);
+
             })
         },
 

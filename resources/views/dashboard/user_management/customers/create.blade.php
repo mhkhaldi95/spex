@@ -110,7 +110,7 @@
                                     <!--begin::Input-->
                                     <input type="password" name="password_confirmation"
                                            class="form-control form-control-solid mb-3 mb-lg-0"
-                                           placeholder="{{__('password_confirmation')}}" value=""/>
+                                           placeholder="Password Confirmation" value=""/>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->

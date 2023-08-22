@@ -1,4 +1,3 @@
-
 @extends('website.layout.master')
 @section('content')
 
@@ -14,30 +13,41 @@
                                     <div class="single-product-thumbnail-wrap zoom-gallery">
                                         <div class="single-product-thumbnail product-large-thumbnail-3 axil-product">
                                             @foreach($product->images as $image)
-                                            <div class="thumbnail product-image-view-parent">
-                                                <div class="product-image-view-child" data-image="{{$image->image}}" style="background-image: url('{{$image->image}}')">
+                                                <div class="thumbnail product-image-view-parent">
+                                                    <div class="product-image-view-child" data-image="{{$image->image}}"
+                                                         style="background-image: url('{{$image->image}}')">
 
+                                                    </div>
                                                 </div>
-{{--                                                <a href="{{$image->image}}" class="popup-zoom">--}}
-{{--                                                    <img src="{{$image->image}}" alt="Product Images">--}}
-{{--                                                </a>--}}
-                                            </div>
+                                            @endforeach
+                                            @foreach($product->variations as $index=>$variation)
+                                                <div class="thumbnail product-image-view-parent" >
+                                                    <div class="product-image-view-child" data-image="{{$variation->image_path}}"
+                                                         style="background-image: url('{{$variation->image_path}}')">
+
+                                                    </div>
+                                                </div>
                                             @endforeach
                                         </div>
                                         <div class="label-block">
                                         </div>
                                         <div class="product-quick-view position-view">
-{{--                                            <a href="{{asset('')}}assets/images/product/product-big-01.png" class="popup-zoom">--}}
-{{--                                                <i class="far fa-search-plus"></i>--}}
-{{--                                            </a>--}}
+                                            {{--                                            <a href="{{asset('')}}assets/images/product/product-big-01.png" class="popup-zoom">--}}
+                                            {{--                                                <i class="far fa-search-plus"></i>--}}
+                                            {{--                                            </a>--}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 order-lg-1">
-                                    <div class="product-small-thumb-3 small-thumb-wrapper">
+                                    <div class="product-small-thumb-3 small-thumb-wrapper" >
                                         @foreach($product->images as $image)
-                                            <div class="small-thumb-img">
+                                            <div class="small-thumb-img" >
                                                 <img src="{{$image->image}}" alt="thumb image">
+                                            </div>
+                                        @endforeach
+                                            @foreach($product->variations as $index=>$variation)
+                                            <div class="small-thumb-img" id="image_color_{{$index}}">
+                                                <img src="{{$variation->image_path}}" alt="thumb image">
                                             </div>
                                         @endforeach
 
@@ -58,12 +68,13 @@
                                             <h6 class="title">Colors:</h6>
                                             <div class="color-variant-wrapper">
                                                 <ul class="color-variant">
-                                                    <li class="color-extra-01 active"><span><span class="color"></span></span>
-                                                    </li>
-                                                    <li class="color-extra-02"><span><span class="color"></span></span>
-                                                    </li>
-                                                    <li class="color-extra-03"><span><span class="color"></span></span>
-                                                    </li>
+                                                    @foreach($product->variations as $index=>$variation)
+                                                        <li data-code-color="{{$variation->color_code}}" class="border_image_color" data-index="{{$index}}">
+                                                            <span>
+                                                                <span class="color" style="background: {{$variation->color_code}};"> </span>
+                                                            </span>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
@@ -74,25 +85,33 @@
                                         <div class="table-responsive">
                                             <table class="table axil-product-table axil-cart-table mb--40">
                                                 <thead>
-                                                <tr >
+                                                <tr>
                                                     <th scope="col" class="product-thumbnail">Product</th>
-                                                    <th scope="col" class="product-title"> Color  </th>
+                                                    <th scope="col" class="product-title"> Color</th>
                                                     <th scope="col" class="product-price">Price</th>
                                                     <th scope="col" class="product-quantity">Quantity</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($product->variations as $variation)
-                                                <tr>
-                                                    <td class="product-thumbnail"><a href="#"><img class="cart-image" data-image="{{$variation->image}}" src="{{$variation->image_path}}" ></a></td>
-                                                    <td class="product-title"><a href="#" class="cart-color">{{$variation->color}}</a></td>
-                                                    <td class="product-price" data-title="Price"><span class="currency-symbol">$</span ><span class="cart-price">{{$variation->price}}</span></td>
-                                                    <td class="product-quantity" data-title="Qty">
-                                                        <div class="pro-qty">
-                                                            <input type="number" class="quantity-input cart-qty" value="0">
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class="product-thumbnail"><a href="#"><img
+                                                                    class="cart-image"
+                                                                    data-image="{{$variation->image}}"
+                                                                    src="{{$variation->image_path}}"></a></td>
+                                                        <td class="product-title"><a href="#"
+                                                                                     class="cart-color">{{$variation->color}}</a>
+                                                        </td>
+                                                        <td class="product-price" data-title="Price"><span
+                                                                class="currency-symbol">$</span><span
+                                                                class="cart-price">{{$variation->price}}</span></td>
+                                                        <td class="product-quantity" data-title="Qty">
+                                                            <div class="pro-qty">
+                                                                <input type="number" class="quantity-input cart-qty" data-product-stoke="{{$variation->stoke}}"
+                                                                       value="0">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                                 </tbody>
                                             </table>
@@ -104,7 +123,10 @@
 
                                         <!-- Start Product Action  -->
                                         <ul class="product-action d-flex-center mb--0">
-                                            <li class="add-to-cart"><a href="{{auth()->check()?'javascript:void(0)':route('login')}}" class="axil-btn btn-bg-primary {{auth()->check()?'add-to-card-btn':''}}" data-product-id="{{$product->id}}">Add to Cart</a></li>
+                                            <li class="add-to-cart"><a
+                                                    href="{{auth()->check()?'javascript:void(0)':route('login')}}"
+                                                    class="axil-btn btn-bg-primary {{auth()->check()?'add-to-card-btn':''}}"
+                                                    data-product-id="{{$product->id}}">Add to Cart</a></li>
                                         </ul>
                                         <!-- End Product Action  -->
 
@@ -128,23 +150,21 @@
     <script>
 
 
-
-        $(document).ready(function() {
-            $('.product-image-view-child').click(function (){
+        $(document).ready(function () {
+            $('.product-image-view-child').click(function () {
                 var image = $(this).data('image')
-                console.log("image",image)
-                window.open(image,'_blank')
+                console.log("image", image)
+                window.open(image, '_blank')
             })
 
             $(document).on('click', '.add-to-card-btn', function (e) {
                 var product_id = $(this).data('product-id')
-                console.log(product_id)
 
                 var qtys = [];
                 var colors = [];
                 var prices = [];
                 var images = [];
-                $('.cart-qty').each(function (index){
+                $('.cart-qty').each(function (index) {
                     var qty = parseInt($(this).val());
                     var color = $('.cart-color').eq(index).html();
                     var image = $('.cart-image').eq(index).data('image');
@@ -154,25 +174,42 @@
                     images.push(image);
                     prices.push(price);
                 })
+                var is_all_zero_qty = true;
+                qtys.forEach(function (qty) {
+                    if(qty > 0){
+                        is_all_zero_qty = false
+                        return;
+                    }
+                })
+                if(is_all_zero_qty){
+                    toastr.warning("Add Quantity");
+                    return;
+                }
 
-                axios.post('{{route('add-to-cart')}}',{
+                axios.post('{{route('add-to-cart')}}', {
                     product_id: product_id, // Assuming product is defined elsewhere in your code
                     qtys: qtys,
                     colors: colors,
                     prices: prices,
                     images: images
                 }).then(function (response) {
-                    console.log("response",response)
+                    console.log("response", response)
                     if (response.data.data) {
                         $('#cart-count').html(response.data.data.count_cart)
-                        $('.cart-qty').each(function (index){
-                         $(this).val(0);
+                        $('.cart-qty').each(function (index) {
+                            $(this).val(0);
                         })
                         toastr.success("Add to Cart Successfully");
                     }
                 })
 
 
+            })
+
+            $(document).on('click', '.border_image_color', function (e) {
+                var index = $(this).data('index')
+                console.log("index",index)
+                $(`#image_color_${index}`).click()
             })
         })
     </script>

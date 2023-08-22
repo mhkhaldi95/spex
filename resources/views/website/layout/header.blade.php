@@ -15,7 +15,7 @@
     <div class="header-top-campaign py-3">
         <div class="container position-relative">
             <div class="campaign-content">
-                <p>Open Doors To A World Of Fashion <a href="#">Discover More</a></p>
+                <p>Open Doors To A World Of Eyewear   <a href="#"></a></p>
             </div>
         </div>
         <button class="remove-campaign"><i class="fal fa-times"></i></button>
@@ -36,11 +36,11 @@
                         <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
                         <div class="mobile-nav-brand">
                             <a href="#" class="logo">
-                                <img src="{{asset('')}}assets/images/logo/logo.png" alt="Site Logo">
+                                <img src="{{asset('')}}website/assets/images/logo/logo.png" alt="Site Logo">
                             </a>
                         </div>
                         <ul class="mainmenu">
-                            <li class="menu-item-has-children menu-item-open">
+                            <li class="menu-item-has-children">
                                 <a href="#">Brands</a>
                                 <ul class="axil-submenu">
                                     @foreach($brands as $brand)
@@ -57,7 +57,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="about-us.html">About Us</a></li>
+{{--                            <li><a href="about-us.html">About Us</a></li>--}}
 
                         </ul>
                     </nav>
@@ -67,7 +67,7 @@
                     <ul class="action-list">
                         <li class="shopping-cart">
 
-                            <a href="{{auth()->check()?route('site.cart'):route('login')}}" class="cart-dropdown-btn">
+                            <a href="{{route('site.cart')}}" class="cart-dropdown-btn">
                                 <span class="cart-count" id="cart-count">{{$cart_count}}</span>
                                 <i class="flaticon-shopping-cart"></i>
                             </a>
@@ -79,7 +79,7 @@
                             <div class="my-account-dropdown">
                                 <ul>
                                     <li>
-                                        <a href="{{auth()->check()?route('site.cart'):route('login')}}">My Account</a>
+                                        <a href="{{auth()->check()?route('site.myaccount'):route('login')}}">My Account</a>
                                     </li>
                                     <li>
                                         <a href="{{auth()->check()?route('logout'):route('login')}}">

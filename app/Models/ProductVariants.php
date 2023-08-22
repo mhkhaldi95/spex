@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductVariants extends Model
 {
     use HasFactory,SystemLog;
-    const FILLABLE = ['product_id','image','stoke','price','color'];
+    const FILLABLE = ['product_id','image','stoke','price','color','color_code'];
     protected $appends = ['image_path'];
     protected $fillable = self::FILLABLE;
 

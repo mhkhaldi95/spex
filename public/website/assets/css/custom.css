@@ -76,4 +76,10 @@
 .qtybtn{
     font-weight: 500 !important;
 }
+.slick-list{
+    height: unset !important;
+}
+.toast-message{
+    font-size: 16px;
+}
 

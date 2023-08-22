@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/vendor/base.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/style.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="{{asset('')}}website/assets/css/custom.css">
 
     <script src="{{asset('')}}assets/plugins/global/axios.js"></script>

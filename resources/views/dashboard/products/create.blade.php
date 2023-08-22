@@ -306,7 +306,7 @@
                                                 @if(isset($item) && isset($item['variations']))
                                                     @foreach($item['variations'] as $index=>$variations)<tr class="tr_variation_color" id="tr_{{$index}}">
                                                         <td>{{$variations['color']}} <input type="hidden" name="colors[]" value="{{$variations['color']}}"></td>
-                                                        <td><input type="color"></td>
+                                                        <td><input type="color" class="form-control" value="{{$variations['color_code']}}" id="colors_code_{{$index}}" name="colors_code[]"></td>
                                                         <td>  <input type="number" value="{{$variations['price']}}" class="form-control mw-100 w-200px h-50 " id="price_{{$index}}" name="prices[]" placeholder="price" /></td>
                                                         <td class="text-end"><input type="number" value="{{$variations['stoke']}}" class="form-control mw-100 w-200px h-50 " id="stoke_{{$index}}" name="stokes[]" placeholder="stoke" /></td>
                                                         <td class="text-end">
@@ -523,10 +523,10 @@
 
 
                 for(var i = (index+1); i <= $('.variation_color').length; i++){
-                    console.log(i)
                     $(`#tr_${i}`).attr('id', `tr_${i-1}`);
                     $(`#stoke_${i}`).attr('id', `stoke_${i-1}`);
                     $(`#price_${i}`).attr('id', `price_${i-1}`);
+                    $(`#colors_code_${i}`).attr('id', `colors_code_${i-1}`);
                     $(`#product_color_image_hidden_${i}`).attr('id', `product_color_image_hidden_${i-1}`);
                 }
 
@@ -541,6 +541,7 @@
 
                     var color = $(this).val();
                     var price = $(`#price_${index}`).val();
+                    var colors_code = $(`#colors_code_${index}`).val();
                     var stoke = $(`#stoke_${index}`).val();
                     var product_color_image_hidden = $(`#product_color_image_hidden_${index}`).val();
 
@@ -549,6 +550,7 @@
                          newRow += `
                 <tr class="tr_variation_color" id="tr_${index}">
                     <td>${color} <input type="hidden" name="colors[]" value="${color}"></td>
+                    <td><input type="color" class="form-control" value="${colors_code}" name="colors_code[]"></td>
                     <td>  <input type="number" value="${price}" class="form-control mw-100 w-200px h-50 " id="price_${index}" name="prices[]" placeholder="price" /></td>
                     <td class="text-end"><input type="number" value="${stoke}" class="form-control mw-100 w-200px h-50 " id="stoke_${index}" name="stokes[]" placeholder="stoke" /></td>
                     <td class="text-end">

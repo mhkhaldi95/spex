@@ -46,8 +46,12 @@
 <script src="{{asset('')}}website/assets/js/vendor/isotope.pkgd.min.js"></script>
 <script src="{{asset('')}}website/assets/js/vendor/counterup.js"></script>
 <script src="{{asset('')}}website/assets/js/vendor/waypoints.min.js"></script>
-<script src="{{asset('')}}assets/js/custom/documentation/general/toastr.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
+
+    $('.cart-dropdown-btn').click(function () {
+        window.location.href = '{{route('site.cart')}}'
+    })
     @if(Session::has('message'))
         toastr.options = {
         "closeButton": false,
@@ -68,7 +72,8 @@
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
+        "hideMethod": "fadeOut",
+        "fontSize": "35px"
     };
 
     var type = "{{Session::get('alert-type','info')}}"
