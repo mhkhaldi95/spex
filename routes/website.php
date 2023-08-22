@@ -20,21 +20,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('site.brands.index');
-});
 
-Route::group(['prefix' => 'brands'], function () {
-    Route::get('/', [BrandController::class, 'index'])->name('site.brands.index');;
-    Route::get('/{id}/collections', [BrandController::class, 'collections'])->name('site.brands.collections');;
-});
-Route::group(['prefix' => 'collections'], function () {
-    Route::get('/{id}/products', [CollectionController::class, 'products'])->name('site.collections.products');;
-});
-Route::group(['prefix' => 'products'], function () {
-    Route::get('/{id}/show', [ProductController::class, 'show'])->name('site.products.show');;
-});
 Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    Route::get('/', function () {
+        return redirect()->route('site.brands.index');
+    });
+
+    Route::group(['prefix' => 'brands'], function () {
+        Route::get('/', [BrandController::class, 'index'])->name('site.brands.index');;
+        Route::get('/{id}/collections', [BrandController::class, 'collections'])->name('site.brands.collections');;
+    });
+    Route::group(['prefix' => 'collections'], function () {
+        Route::get('/{id}/products', [CollectionController::class, 'products'])->name('site.collections.products');;
+    });
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/{id}/show', [ProductController::class, 'show'])->name('site.products.show');;
+    });
+
     Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');;
     Route::get('cart', [CartController::class, 'index'])->name('site.cart');;
     Route::get('cart/product-remove/{id}', [CartController::class, 'productRemove'])->name('site.cart.product-remove');;
