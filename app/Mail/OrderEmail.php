@@ -40,7 +40,7 @@ class OrderEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('alnukhba.agency', 'Test Sender'),
+            from: new Address('admin@projects.alnukhba.agency', 'Test Sender'),
             subject: 'Test Email',
         );
     }
