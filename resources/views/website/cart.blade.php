@@ -47,7 +47,9 @@
                         </table>
                     </div>
                     <div class="product-table-footer">
-                        <a href="javascript:void(0)" id="checkout-btn" class="axil-btn btn-bg-primary checkout-btn">Make an Order</a>
+                        @if(count($cart->items) > 0)
+                         <a href="javascript:void(0)" id="checkout-btn" class="axil-btn btn-bg-primary checkout-btn">Make an Order</a>
+                        @endif
                     </div>
                 </form>
 
