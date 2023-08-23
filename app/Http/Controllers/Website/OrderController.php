@@ -14,6 +14,7 @@ use App\Models\CartItem;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductVariants;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -106,7 +107,8 @@ class OrderController extends Controller
             $cart = Cart::query()->where('user_id' , auth()->id())->firstOrFail();
             $cart->items()->delete();
             $cart->delete();
-            Mail::to('mhkhaldi95@gmail.com')->send(new OrderEmail(auth()->user(),$order));
+            $emails = User::query()->whereIn('role',[Enum::ADMIN,Enum::SUPER_ADMIN])->pluck('email')->toArray();
+            Mail::to($emails)->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
             return  $this->returnBackWithSaveDone();
         } catch (QueryException $exception) {

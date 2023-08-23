@@ -245,7 +245,7 @@
                                                 <!--begin::Thumbnail-->
                                                 <a href="#" class="symbol symbol-50px">
                                                     <span class="symbol-label"
-                                                          style="background-image:url({{$ite->image}});"></span>
+                                                          style="background-image:url({{$ite->image_path}});"></span>
                                                 </a>
                                                 <!--end::Thumbnail-->
                                                 <!--begin::Title-->
