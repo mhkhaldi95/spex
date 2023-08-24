@@ -111,7 +111,7 @@ class OrderController extends Controller
             $cart->items()->delete();
             $cart->delete();
             $emails = User::query()->whereIn('role',[Enum::ADMIN,Enum::SUPER_ADMIN])->pluck('email')->toArray();
-            Mail::to($emails)->send(new OrderEmail(auth()->user(),$order));
+//            Mail::to($emails)->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
             return  $this->returnBackWithSaveDone();
         } catch (QueryException $exception) {
