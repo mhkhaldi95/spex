@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('master_image')->default('default.png');
             $table->text('tags')->nullable();
             $table->enum('status',[Enum::PUBLISHED,Enum::INACTIVE])->default('published');
+            $table->enum('stoke_type',[Enum::IN,Enum::OUT])->default(Enum::IN);
             $table->tinyInteger('is_deleted')->default(0);
             $table->foreignId('collection_id')->nullable()->constrained('collections');
 

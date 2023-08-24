@@ -34,6 +34,7 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'collection_id' => $this->collection_id,
+            'stoke_type' => $this->stoke_type,
             'master_image' => $this->avatar,
             'images' => @$this->images()->select('id','name')->get(),
             'tags' => $this->tags?(json_encode(convertTagsStringToObject($this->tags))):'',

@@ -20,4 +20,7 @@ class ProductVariants extends Model
         }
         return asset('storage/product_color_image/' . $this->image);
     }
+    public function product(){
+       return $this->belongsTo(Product::class);
+    }
 }

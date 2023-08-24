@@ -1,6 +1,7 @@
 @extends('website.layout.master')
 @section('content')
 
+    <input type="hidden" id="stoke_type" value="{{$product->stoke_type}}">
     <main class="main-wrapper">
         <!-- Start Shop Area  -->
         <div class="axil-single-product-area axil-section-gap pb--0 bg-color-white">
@@ -108,7 +109,7 @@
                                                         <td class="product-quantity" data-title="Qty">
                                                             <div class="pro-qty">
                                                                 <input type="number" class="quantity-input cart-qty" data-product-stoke="{{$variation->stoke}}"
-                                                                       value="0">
+                                                                       data-product-stoke-type="{{$product->stoke_type}}"   value="0">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -158,6 +159,7 @@
             })
 
             $(document).on('click', '.add-to-card-btn', function (e) {
+                var stoke_type = $('#stoke_type').val();
                 var product_id = $(this).data('product-id')
 
                 var qtys = [];

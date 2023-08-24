@@ -214,112 +214,131 @@
                         </div>
                     </div>
                     <!--end::Card header-->
-                    <!--begin::Card body-->
-                    <div class="card-body pt-0">
-                        <div class="table-responsive">
-                            <!--begin::Table-->
-                            <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
-                                <!--begin::Table head-->
-                                <thead>
-                                <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-175px">Product</th>
-                                    <th class="min-w-175px">Color</th>
-                                    <th class="min-w-70px ">Qty</th>
-                                    <th class="min-w-100px ">Unit Price</th>
-                                    <th class="min-w-100px ">Total</th>
-                                </tr>
-                                </thead>
-                                <!--end::Table head-->
-                                <!--begin::Table body-->
-                                <tbody class="fw-bold text-gray-600">
-                                <!--begin::Products-->
-                                @php
-                                    $sub_total = 0;
-                                @endphp
-                                @foreach($item->items as $ite)
+                    <form action="{{route('orders.update.qty',$item->id)}}" method="post">
+                        @csrf
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                    <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+                                        <th class="min-w-175px">Product</th>
+                                        <th class="min-w-175px">Color</th>
+                                        <th class="min-w-70px ">Qty</th>
+                                        <th class="min-w-100px ">Unit Price</th>
+                                        <th class="min-w-100px ">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody class="fw-bold text-gray-600">
+                                    <!--begin::Products-->
+                                    @php
+                                        $sub_total = 0;
+                                    @endphp
+                                    @foreach($item->items as $ite)
 
-                                    <tr>
-                                        <!--begin::Product-->
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Thumbnail-->
-                                                <a href="#" class="symbol symbol-50px">
+                                        <tr>
+                                            <!--begin::Product-->
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <!--begin::Thumbnail-->
+                                                    <a href="#" class="symbol symbol-50px">
                                                     <span class="symbol-label"
                                                           style="background-image:url({{$ite->image_path}});"></span>
-                                                </a>
-                                                <!--end::Thumbnail-->
-                                                <!--begin::Title-->
-                                                <div class="ms-5">
-                                                    <a href="#"
-                                                       class="fw-bolder text-gray-600 text-hover-primary">{{$ite->product->name}}</a>
-                                                    {{--                                                <div class="fs-7 text-muted">Delivery Date: 30/03/2022</div>--}}
+                                                    </a>
+                                                    <!--end::Thumbnail-->
+                                                    <!--begin::Title-->
+                                                    <div class="ms-5">
+                                                        <a href="#"
+                                                           class="fw-bolder text-gray-600 text-hover-primary">{{$ite->product->name}}</a>
+                                                        {{--                                                <div class="fs-7 text-muted">Delivery Date: 30/03/2022</div>--}}
+                                                    </div>
+                                                    <!--end::Title-->
                                                 </div>
-                                                <!--end::Title-->
+                                            </td>
+                                            <!--end::Product-->
+
+                                            <!--begin::Quantity-->
+                                            <td>
+                                                <div class="badge badge-light-info">
+                                                    {{$ite->color}}
+                                                </div>
+
+                                            </td>
+                                            <td>
+                                                <input type="hidden"  value="{{$ite->id}}" name="order_item_ids[]">
+                                                <input type="number" class="form-control" style="width: 70px;" min="0" value="{{$ite->qty}}" name="qtys[]">
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-light-warning">
+                                                    {{$ite->price}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-light-success">
+                                                    {{$ite->qty * $ite->price}}
+                                                </div>
+                                            </td>
+
+                                            <!--end::Quantity-->
+
+                                            @php
+                                                $sub_total += $ite->quantity * $ite->price;
+                                            @endphp
+                                        </tr>
+                                    @endforeach
+                                    <!--end::Products-->
+                                    <!--begin::Subtotal-->
+                                    {{--                                <tr>--}}
+                                    {{--                                    <td colspan="4" class="text-end">{{__('Subtotal')}}</td>--}}
+                                    {{--                                    <td class="text-end">{{$sub_total}}</td>--}}
+                                    {{--                                </tr>--}}
+                                    <!--end::Subtotal-->
+                                    <!--begin::VAT-->
+                                    {{--                                <tr>--}}
+                                    {{--                                    <td colspan="4" class="text-end">VAT (0%)</td>--}}
+                                    {{--                                    <td class="text-end">$0.00</td>--}}
+                                    {{--                                </tr>--}}
+
+
+                                    <!--begin::Grand total-->
+                                    <tr>
+                                        <td colspan="4" class="fs-3 text-dark ">Total</td>
+                                        <td class="text-dark fs-3 fw-boldest ">
+                                            <div class="badge badge-light-danger">
+                                                {{$item->price}}
                                             </div>
                                         </td>
-                                        <!--end::Product-->
-
-                                        <!--begin::Quantity-->
-                                        <td>
-                                            <div class="badge badge-light-info">
-                                                {{$ite->color}}
-                                            </div>
-
-                                         </td>
-                                        <td>
-                                            <div class="badge badge-light-primary">
-                                                {{$ite->qty}}
-                                            </div>
-                                         </td>
-                                        <td>
-                                            <div class="badge badge-light-warning">
-                                                {{$ite->price}}
-                                            </div>
-                                         </td>
-                                        <td>
-                                            <div class="badge badge-light-success">
-                                                {{$ite->qty * $ite->price}}
-                                            </div>
-                                         </td>
-
-                                        <!--end::Quantity-->
-
-                                        @php
-                                            $sub_total += $ite->quantity * $ite->price;
-                                        @endphp
                                     </tr>
-                                @endforeach
-                                <!--end::Products-->
-                                <!--begin::Subtotal-->
-{{--                                <tr>--}}
-{{--                                    <td colspan="4" class="text-end">{{__('Subtotal')}}</td>--}}
-{{--                                    <td class="text-end">{{$sub_total}}</td>--}}
-{{--                                </tr>--}}
-                                <!--end::Subtotal-->
-                                <!--begin::VAT-->
-                                {{--                                <tr>--}}
-                                {{--                                    <td colspan="4" class="text-end">VAT (0%)</td>--}}
-                                {{--                                    <td class="text-end">$0.00</td>--}}
-                                {{--                                </tr>--}}
-
-
-                                <!--begin::Grand total-->
-                                <tr>
-                                    <td colspan="4" class="fs-3 text-dark ">Total</td>
-                                    <td class="text-dark fs-3 fw-boldest ">
-                                        <div class="badge badge-light-danger">
-                                            {{$item->price}}
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!--end::Grand total-->
-                                </tbody>
-                                <!--end::Table head-->
-                            </table>
-                            <!--end::Table-->
+                                    @if($item->status == \App\Constants\Enum::NEW)
+                                    <tr>
+                                        <td colspan="4" class="fs-3 text-dark "></td>
+                                        <td class="text-dark fs-3 fw-boldest ">
+                                            <div class="d-flex justify-content-end">
+                                                <!--begin::Button-->
+                                                <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                                                    <span class="indicator-label">Order Update</span>
+                                                    <span class="indicator-progress">{{__('lang.Please wait')}}...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                </button>
+                                                <!--end::Button-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    <!--end::Grand total-->
+                                    </tbody>
+                                    <!--end::Table head-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
                         </div>
-                    </div>
-                    <!--end::Card body-->
+                        <!--end::Card body-->
+                    </form>
+
                 </div>
                 <!--end::Product List-->
             </div>

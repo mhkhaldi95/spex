@@ -83,11 +83,43 @@
 
 
                             <select class="form-select form-select-solid  w-250px fw-bolder "
-                                    data-kt-select2="true" data-placeholder="Status" name="statusindex.blade.php"
+                                    data-kt-select2="true" data-placeholder="Status" name="status"
                                     data-allow-clear="true" id="status_filter">
                                 <option></option>
-                                <option value="{{\App\Constants\Enum::PUBLISHED}}" {{isset($item)?$item['status'] == \App\Constants\Enum::PUBLISHED?'selected':'':''}}>{{__('lang.Published')}}</option>
+                                <option value="{{\App\Constants\Enum::PUBLISHED}}" {{isset($item)?$item['status'] == \App\Constants\Enum::PUBLISHED?'selected':'':'selected'}}>{{__('lang.Published')}}</option>
                                 <option value="{{\App\Constants\Enum::INACTIVE}}" {{isset($item)?$item['status'] == \App\Constants\Enum::INACTIVE?'selected':'':''}}>{{__('lang.Inactive')}}</option>
+
+                            </select>
+                            <!--end::Select2-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Status-->
+                    <!--begin::Status-->
+                    <div class="card card-flush py-4">
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <!--begin::Card title-->
+                            <div class="card-title">
+                                <h2>Stock Type</h2>
+                            </div>
+                            <!--end::Card title-->
+                            <!--begin::Card toolbar-->
+
+                            <!--begin::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <!--begin::Select2-->
+
+
+                            <select class="form-select form-select-solid  w-250px fw-bolder "
+                                    data-kt-select2="true" data-placeholder="Status" name="stoke_type"
+                                    data-allow-clear="true" id="stoke_type">
+                                <option></option>
+                                <option value="{{\App\Constants\Enum::IN}}" {{isset($item)?$item['stoke_type'] == \App\Constants\Enum::IN?'selected':'':'selected'}}>In</option>
+                                <option value="{{\App\Constants\Enum::OUT}}" {{isset($item)?$item['stoke_type'] == \App\Constants\Enum::OUT?'selected':'':''}}>Out</option>
 
                             </select>
                             <!--end::Select2-->
@@ -150,6 +182,7 @@
                             <!--end::Input group-->
                         </div>
                         <!--end::Card body-->
+
                     </div>
                     <!--end::Category & tags-->
                 </div>

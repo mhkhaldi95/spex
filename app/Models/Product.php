@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class Product extends Model
 {
     use HasFactory,SystemLog;
-    const FILLABLE = ['name','description','master_image','tags','collection_id','status','is_deleted'];
+    const FILLABLE = ['name','description','stoke_type','master_image','tags','collection_id','status','is_deleted'];
 
     protected $fillable = self::FILLABLE;
     protected $appends =['avatar'];
