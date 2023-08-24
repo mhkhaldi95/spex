@@ -91,11 +91,11 @@ class OrderController extends Controller
 
                $variant =  ProductVariants::query()->where('product_id',$product_ids[$i])->where('image',$images[$i])->firstOrFail();
                 $product = $variant->product;
-               if($qtys[$i] > $variant->stoke && $product->stock_type == Enum::IN){
+               if($qtys[$i] > $variant->stoke && $product->stoke_type == Enum::IN){
                    return $this->outOfStoke($variant->product->name,$variant->color);
                }
 
-               if($product->stock_type == Enum::IN){
+               if($product->stoke_type == Enum::IN){
                    $variant->update([
                        'stoke' => $variant->stoke - $qtys[$i]
                    ]);
