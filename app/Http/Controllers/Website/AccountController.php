@@ -136,4 +136,10 @@ class AccountController extends Controller
         }
     }
 
+
+    public function about(){
+        return view('website.about');
+    }
+
+
 }

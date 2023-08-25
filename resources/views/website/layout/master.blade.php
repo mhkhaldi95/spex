@@ -98,6 +98,47 @@
 <!-- Main JS -->
 <script src="{{asset('')}}website/assets/js/main.js"></script>
 
+<script>
+    $(document).ready(function () {
+        var advertisements = [];
+        var currentAdIndex = 0; // To keep track of the current advertisement index
+
+        function fetchAdvertisements() {
+            axios.get('{{route('site.advertisements.index')}}').then(function (response) {
+                advertisements = response.data.items;
+                displayCurrentAdvertisement(); // Display the first advertisement on initial load
+            }).catch(function (error) {
+                if (error.response && error.response.status === 401 && error.response.data.message === 'Unauthenticated.') {
+                    window.location.reload();
+                } else if (error.response && error.response.status === 419) {
+                    window.location.reload();
+                }
+            });
+        }
+
+        // Fetch advertisements initially
+        fetchAdvertisements();
+
+        // Display the current advertisement
+        function displayCurrentAdvertisement() {
+            if (advertisements.length > 0) {
+                var currentAd = advertisements[currentAdIndex];
+                $('#advertisements').html(currentAd.description)
+            }
+        }
+
+        // Increment the currentAdIndex and display the next advertisement
+        function cycleAdvertisements() {
+            currentAdIndex = (currentAdIndex + 1) % advertisements.length;
+            displayCurrentAdvertisement();
+        }
+
+        // Start cycling advertisements every 30 seconds
+        setInterval(cycleAdvertisements, 30000);
+    });
+</script>
+
+
 </body>
 <!--end::Body-->
 

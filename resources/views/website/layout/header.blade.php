@@ -15,7 +15,7 @@
     <div class="header-top-campaign py-3">
         <div class="container position-relative">
             <div class="campaign-content">
-                <p>Open Doors To A World Of Eyewear   <a href="#"></a></p>
+                <p id="advertisements"></p>
             </div>
         </div>
         <button class="remove-campaign"><i class="fal fa-times"></i></button>
@@ -57,7 +57,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-{{--                            <li><a href="about-us.html">About Us</a></li>--}}
+                            <li><a href="{{route('site.about')}}">About Us</a></li>
 
                         </ul>
                     </nav>

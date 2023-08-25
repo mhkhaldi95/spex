@@ -42,5 +42,8 @@ class Advertisement extends Model
         }
         return asset('storage/advertisement-image/' . $value);
     }
+    public function scopeActive($q){
+        return $q->where('is_deleted',0);
+    }
 
 }

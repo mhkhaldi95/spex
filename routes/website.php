@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\AccountController;
+use App\Http\Controllers\Website\AdvertisementController;
 use App\Http\Controllers\Website\BrandController;
 
 use App\Http\Controllers\Website\CartController;
@@ -46,7 +47,10 @@ Route::group(['middleware' => ['auth:sanctum','customer']], function () {
     Route::get('orders/{id}/show', [OrderController::class, 'show'])->name('site.order.show');;
 
     Route::get('my-account', [AccountController::class, 'index'])->name('site.myaccount');;
-    Route::post('my-account/update', [AccountController::class, 'update'])->name('site.myaccount.update');;
+    Route::post('my-account/update', [AccountController::class, 'update'])->name('site.myaccount.update');
+    Route::get('about', [AccountController::class, 'about'])->name('site.about');
+
+    Route::get('advertisements', [AdvertisementController::class, 'index'])->name('site.advertisements.index');;
 
 });
 
