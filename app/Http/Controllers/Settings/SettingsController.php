@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class SettingsController extends Controller
@@ -38,7 +39,6 @@ class SettingsController extends Controller
             unset($data['about_image']);
         }
 
-
         if(isset($data['site_tags'])){
             $data['site_tags'] = convertTagsObjectToString($data['site_tags']);
         }else{
@@ -63,6 +63,7 @@ class SettingsController extends Controller
             return $this->returnBackWithSaveDone();
         } catch (\Exception $exception) {
             DB::rollBack();
+            dd($exception->getMessage());
             return $this->returnBackWithSaveDoneFailed();
         }
     }

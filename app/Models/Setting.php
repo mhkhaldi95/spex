@@ -23,12 +23,12 @@ class Setting extends Model
             if ($value == 'icon_site.png') {
                 return asset('assets/media/icons/icon_site.png');
             }
-            return asset('storage/site-icons/' . $this->value);
+            return asset('storage/site-icons/' . $value);
         }elseif($this->key == 'about_image'){
             if ($value == 'about-01.png') {
                 return asset('website/assets/images/about/about-01.png');
             }
-            return asset('storage/site-icons/' . $this->value);
+            return asset('storage/site-icons/' . $value);
         }elseif($this->key == 'site_tags'){
             return json_encode(convertTagsStringToObject($value));
         }else{
