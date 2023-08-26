@@ -31,6 +31,12 @@
                                            href="#kt_ecommerce_add_product_reviews">Social Media Info</a>
                                     </li>
                                     <!--end:::Tab item-->
+                                    <!--begin:::Tab item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                           href="#about">About Us</a>
+                                    </li>
+                                    <!--end:::Tab item-->
                                 </ul>
                                 <!--end:::Tabs-->
                                 <!--begin::Tab content-->
@@ -175,8 +181,220 @@
                                     <!--end::Tab pane-->
 
                                     <!--begin::Tab pane-->
-                                    <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
-                                        3
+                                    <div class="tab-pane fade" id="about" role="tab-panel">
+                                        <div class="card card-flush py-4">
+                                            <!--begin::Card body-->
+
+                                            <div class="card-body pt-0">
+                                                <div>
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">About Image</label>
+                                                    <!--end::Label-->
+                                                </div>
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <div class="image-input image-input-empty image-input-outline mb-3" id="avatar" data-kt-image-input="true"
+                                                     style="background-image: url({{getSettingByKey($settings,'about_image')->value }})">
+                                                    <!--begin::Preview existing avatar-->
+                                                    <div class="image-input-wrapper w-150px h-150px"></div>
+                                                    <!--end::Preview existing avatar-->
+                                                    <!--begin::Label-->
+                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                                        <i class="bi bi-pencil-fill fs-7"></i>
+                                                        <!--begin::Inputs-->
+                                                        <input type="file" name="about_image" accept=".png, .jpg, .jpeg" />
+                                                        <input type="hidden" name="site_icon_hidden" />
+                                                        <!--end::Inputs-->
+                                                    </label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Cancel-->
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                                    <!--end::Cancel-->
+                                                    <!--begin::Remove-->
+                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+														<i class="bi bi-x fs-2"></i>
+													</span>
+                                                    <!--end::Remove-->
+                                                </div>
+                                                <!--end::Image input-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">Title</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="about_title" class="form-control mb-2"
+                                                               placeholder="Title" value="{{getSettingByKey($settings,'about_title')->value }}" />
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">Sub Title</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="about_sub_title" class="form-control mb-2"
+                                                               placeholder="Title" value="{{getSettingByKey($settings,'about_sub_title')->value }}" />
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">Description Left Section</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <textarea  name="about_description_left" class="form-control mb-2" rows="8"
+                                                        >
+                                                            {{getSettingByKey($settings,'about_description_left')->value}}
+                                                        </textarea>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">Description Right Section</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <textarea  name="about_description_right" class="form-control mb-2" rows="8"
+                                                        >
+                                                            {{getSettingByKey($settings,'about_description_right')->value}}
+                                                        </textarea>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(1) Title</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="about_info_box1_title" class="form-control mb-2"
+                                                               placeholder="Info Box(1) Title" value="{{getSettingByKey($settings,'about_info_box1_title')->value }}" />
+
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(1) Content</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <textarea  name="about_info_box1_content" class="form-control mb-2" rows="5"
+                                                        >
+                                                            {{getSettingByKey($settings,'about_info_box1_content')->value}}
+                                                        </textarea>
+
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(2) Title</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="about_info_box2_title" class="form-control mb-2"
+                                                               placeholder="Info Box(2) Title" value="{{getSettingByKey($settings,'about_info_box2_title')->value }}" />
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(2) Content</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <textarea  name="about_info_box2_content" class="form-control mb-2" rows="5"
+                                                        >
+                                                            {{getSettingByKey($settings,'about_info_box2_content')->value}}
+                                                        </textarea>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+                                                <!--begin::Separator-->
+                                                <div class="separator separator-dashed mt-4 mb-4"></div>
+                                                <!--end::Separator-->
+                                                <!--begin::Tax-->
+                                                <div class="d-flex flex-wrap gap-5">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(3) Title</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="about_info_box3_title" class="form-control mb-2"
+                                                               placeholder="Info Box(3) Title" value="{{getSettingByKey($settings,'about_info_box3_title')->value }}" />
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row w-100 flex-md-root">
+                                                        <!--begin::Label-->
+                                                        <label class="form-label">About Info Box(3) Content</label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <textarea  name="about_info_box3_content" class="form-control mb-2" rows="5"
+                                                        >
+                                                            {{getSettingByKey($settings,'about_info_box3_content')->value}}
+                                                        </textarea>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </div>
+                                                <!--end:Tax-->
+
+                                            </div>
+                                            <!--end:Tax-->
+                                            <!--end::Card header-->
+                                        </div>
                                     </div>
                                     <!--end::Tab pane-->
                                 </div>

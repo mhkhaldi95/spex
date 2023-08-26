@@ -36,13 +36,7 @@ class DatabaseSeeder extends Seeder
 //        User::factory(10)->create();
 
 
-        $data = [
-            ["key" => 'site_name', "value" => 'spex'],
-            ["key" => 'site_description', "value_ar" => 'spex'],
-            ["key" => 'site_icon', "value" => 'icon_site.png'],
-            ["key" => 'site_tags', "value" => ''],
 
-        ];
 
         $brands = [
             ['name' => 'brand1'],
@@ -62,7 +56,7 @@ class DatabaseSeeder extends Seeder
         ];
 
 
-        Setting::query()->insert($data);
+
 //        Brand::query()->insert($brands);
 //        Collection::query()->insert($collections);
 //        Product::factory()->count(5)->create();

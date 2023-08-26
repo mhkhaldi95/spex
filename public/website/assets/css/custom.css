@@ -73,6 +73,25 @@
     width: 100%;
 
 }
+.about-image-view-parent{
+    width: 410px;
+    height: 489px;
+    background-color: #9d9b9b;
+    border-radius: 5px;
+    opacity: 1;
+}
+.about-image-view-child{
+    border-radius: 5px;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
 .qtybtn{
     font-weight: 500 !important;
 }

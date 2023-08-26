@@ -6,26 +6,25 @@
                 <div class="col-xl-4 col-lg-6">
                     <div class="about-thumbnail">
                         <div class="thumbnail">
-                            <img src="{{asset('')}}website/assets/images/about/about-01.png" alt="About Us">
+                            <div class="thumbnail about-image-view-parent">
+                                <div class="about-image-view-child"
+                                     style="background-image: url('{{getSettingByKey($settings,'about_image')->value}}')">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-6">
                     <div class="about-content content-right">
-                        <h3 class="title">Online shopping includes both buying things online.</h3>
-                        <span class="text-heading">Salesforce B2C Commerce can help you create unified, intelligent digital commerce
-                                experiences — both online and in the store.</span>
+                        <h3 class="title">{{getSettingByKey($settings,'about_title')->value}}</h3>
+                        <span class="text-heading">{{getSettingByKey($settings,'about_sub_title')->value}}</span>
                         <div class="row">
                             <div class="col-xl-6">
-                                <p>Empower your sales teams with industry tailored
-                                    solutions that support manufacturers as they go
-                                    digital, and adapt to changing markets &amp; customers
-                                    faster by creating new business.</p>
+                                <p>{{getSettingByKey($settings,'about_description_left')->value}}</p>
                             </div>
                             <div class="col-xl-6">
-                                <p class="mb--0">Salesforce B2B Commerce offers buyers the
-                                    seamless, self-service experience of online
-                                    shopping with all the B2B</p>
+                                <p class="mb--0">{{getSettingByKey($settings,'about_description_right')->value}}</p>
                             </div>
                         </div>
                     </div>
@@ -39,27 +38,24 @@
                 <div class="col-lg-4">
                     <div class="about-info-box">
                         <div class="content">
-                            <h6 class="title">40,000+ Happy Customer</h6>
-                            <p>Empower your sales teams with industry
-                                tailored solutions that support.</p>
+                            <h6 class="title">{{getSettingByKey($settings,'about_info_box1_title')->value}}</h6>
+                            <p>{{getSettingByKey($settings,'about_info_box1_content')->value}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="about-info-box">
                         <div class="content">
-                            <h6 class="title">16 Years of Experiences</h6>
-                            <p>Empower your sales teams with industry
-                                tailored solutions that support.</p>
+                            <h6 class="title">{{getSettingByKey($settings,'about_info_box2_title')->value}}</h6>
+                            <p>{{getSettingByKey($settings,'about_info_box2_content')->value}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="about-info-box">
                         <div class="content">
-                            <h6 class="title">12 Awards Won</h6>
-                            <p>Empower your sales teams with industry
-                                tailored solutions that support.</p>
+                            <h6 class="title">{{getSettingByKey($settings,'about_info_box3_title')->value}}</h6>
+                            <p>{{getSettingByKey($settings,'about_info_box3_content')->value}}</p>
                         </div>
                     </div>
                 </div>

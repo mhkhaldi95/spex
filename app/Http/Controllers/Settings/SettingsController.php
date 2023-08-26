@@ -32,6 +32,11 @@ class SettingsController extends Controller
         }else{
             unset($data['site_icon']);
         }
+        if(isset($data['about_image'])){
+            $data['about_image'] =  uploadFile($request,'site-icons','about_image');
+        }else{
+            unset($data['about_image']);
+        }
 
 
         if(isset($data['site_tags'])){
