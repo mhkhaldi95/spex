@@ -92,20 +92,20 @@
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
-                            <div class="col-lg-3 ">
+{{--                            <div class="col-lg-3 ">--}}
 
-                                <!--begin::Input-->
-                                <select class="form-select form-select-solid   fw-bolder "
-                                        data-kt-select2="true" data-placeholder="Active/Deleted"
-                                        data-allow-clear="true" id="delete_filter">
-                                    <option></option>
-                                    <option value="0" >Active</option>
-                                    <option value="1" >Deleted</option>
+{{--                                <!--begin::Input-->--}}
+{{--                                <select class="form-select form-select-solid   fw-bolder "--}}
+{{--                                        data-kt-select2="true" data-placeholder="Active/Deleted"--}}
+{{--                                        data-allow-clear="true" id="delete_filter">--}}
+{{--                                    <option></option>--}}
+{{--                                    <option value="0" >Active</option>--}}
+{{--                                    <option value="1" >Deleted</option>--}}
 
 
-                                </select>
-                                <!--end::Input-->
-                            </div>
+{{--                                </select>--}}
+{{--                                <!--end::Input-->--}}
+{{--                            </div>--}}
 
 
                         </div>
@@ -136,7 +136,7 @@
                             <th class="min-w-125px">Customer Name</th>
                             <th class="min-w-125px">Price</th>
                             <th class="min-w-125px"> Status</th>
-                            <th class="min-w-125px"> Active/Deleted</th>
+{{--                            <th class="min-w-125px"> Active/Deleted</th>--}}
                             <th class="min-w-125px">Created At</th>
                             <th class="text-end min-w-70px">{{__('lang.actions')}}</th>
                         </tr>
@@ -221,7 +221,7 @@
                             {data: 'customer_name'},
                             {data: 'price'},
                             {data: 'status'},
-                            {data: 'check_delete'},
+                            // {data: 'check_delete'},
                             {data: 'created_at'},
                             {data: 'actions'},
                         ],

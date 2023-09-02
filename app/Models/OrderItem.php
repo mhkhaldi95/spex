@@ -11,6 +11,8 @@ class OrderItem extends Model
     use HasFactory,SystemLog;
     const FILLABLE = ['order_id','product_id','color','image','price','qty'];
     protected $with =['product'];
+    protected $appends = ['image_path'];
+
     protected $fillable = self::FILLABLE;
 
     public function scopeFilter($q)
@@ -31,11 +33,11 @@ class OrderItem extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function getImageAttribute($value){
-        if($value == 'default.png'){
+    public function getImagePathAttribute(){
+        if($this->image == 'default.png'){
             return asset('assets/media/default.png');
         }
-        return asset('storage/product-images/'.$value);
+        return asset('storage/product_color_image/'.$this->image);
     }
 
 

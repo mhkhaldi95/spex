@@ -20,17 +20,17 @@
     </div>
     <!--end::Menu item-->
 
-    <div class="menu-item px-3">
-        @if(!$item->is_deleted)
-        <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-            {{__('lang.Delete')}}
-        </a>
-        @else
-            <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >
-               Cancel Delete
-            </a>
-        @endif
-    </div>
+{{--    <div class="menu-item px-3">--}}
+{{--        @if(!$item->is_deleted)--}}
+{{--        <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >--}}
+{{--            {{__('lang.Delete')}}--}}
+{{--        </a>--}}
+{{--        @else--}}
+{{--            <a href="#" class="menu-link px-3 delete_row" data-id="{{$item->id}}" data-kt-docs-table-filter="delete_row" >--}}
+{{--               Cancel Delete--}}
+{{--            </a>--}}
+{{--        @endif--}}
+{{--    </div>--}}
 
 
 

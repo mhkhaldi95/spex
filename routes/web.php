@@ -107,6 +107,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::get('/', [OrderController::class, 'index'])->name('orders.index');
             Route::get('/{id}/show', [OrderController::class, 'show'])->name('orders.show');
             Route::post('{id}/change-status', [OrderController::class, 'changeStatus'])->name('orders.changeStatus');
+            Route::post('{id}/update-qty', [OrderController::class, 'updateQty'])->name('orders.update.qty');
             Route::post('{id}/delete', [OrderController::class, 'delete'])->name('orders.delete');
         });
 
@@ -142,13 +143,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 include "website.php";
 
-Route::get('send-email', function () {
-    $user = \Illuminate\Support\Facades\Auth::user(); // or fetch your user data
 
-    \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\MyEmail($user));
-
-    return "Email sent!";
-});
 Route::get('notifications/{id}/readAt', function ($id) {
 
     try {

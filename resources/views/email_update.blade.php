@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Simple Transactional Email</title>
+    <title>Order Edit</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -349,7 +349,7 @@
                                 <tr>
                                     <td>
                                         <p>Hi there,</p>
-                                        <p>{{$user->name}} A new Order has just been created.</p>
+                                        <p> Your Order has been Edited by the administration.</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                             <tbody>
                                             <tr>
@@ -357,7 +357,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td> <a href="{{route('orders.show',$order->id)}}" target="_blank">Show Order</a> </td>
+                                                            <td> <a href="{{route('site.order.show',$order->id)}}" target="_blank">Show Order</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -384,11 +384,6 @@
 {{--                                <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.--}}
                             </td>
                         </tr>
-{{--                        <tr>--}}
-{{--                            <td class="content-block powered-by">--}}
-{{--                                Powered by <a href="http://htmlemail.io">HTMLemail</a>.--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
                     </table>
                 </div>
                 <!-- END FOOTER -->

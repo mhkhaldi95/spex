@@ -7,15 +7,18 @@ use App\Constants\StatusCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brands\BrandRequest;
 use App\Http\Resources\Brands\BrandResource;
+use App\Mail\OrderEmail;
 use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductVariants;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 
 class OrderController extends Controller
@@ -26,6 +29,13 @@ class OrderController extends Controller
         $orders = Order::query()->where(['user_id' => auth()->id()])->get();
         return view('website.myaccount',[
             'orders' => $orders
+        ]);
+    }
+
+    public function show($id){
+        $order = Order::query()->findOrFail($id);
+        return view('website.order',[
+            'order' => $order
         ]);
     }
 
@@ -80,14 +90,17 @@ class OrderController extends Controller
                 ]);
 
                $variant =  ProductVariants::query()->where('product_id',$product_ids[$i])->where('image',$images[$i])->firstOrFail();
-
-               if($qtys[$i] > $variant->stoke){
+                $product = $variant->product;
+               if($qtys[$i] > $variant->stoke && $product->stoke_type == Enum::IN){
                    return $this->outOfStoke($variant->product->name,$variant->color);
                }
 
-               $variant->update([
-                    'stoke' => $variant->stoke - $qtys[$i]
-                ]);
+               if($product->stoke_type == Enum::IN){
+                   $variant->update([
+                       'stoke' => $variant->stoke - $qtys[$i]
+                   ]);
+               }
+
 
             }
             $order->update([
@@ -97,6 +110,8 @@ class OrderController extends Controller
             $cart = Cart::query()->where('user_id' , auth()->id())->firstOrFail();
             $cart->items()->delete();
             $cart->delete();
+            $emails = User::query()->whereIn('role',[Enum::ADMIN,Enum::SUPER_ADMIN])->pluck('email')->toArray();
+            Mail::to($emails)->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
             return  $this->returnBackWithSaveDone();
         } catch (QueryException $exception) {

@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $q->where('role', Enum::CUSTOMER);
     }
 
+    public function scopeActive($q)
+    {
+        return $q->where('is_deleted', 0);
+    }
+
     public function isAdmin()
     {
         return in_array($this->role, [Enum::ADMIN, Enum::SUPER_ADMIN]);

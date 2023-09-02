@@ -36,7 +36,10 @@ class Enum
     const DELIVERING = 'delivering';
     const DELIVERED = 'delivered';
 
+    // stoke types
 
+    const IN = 'in';
+    const OUT = 'out';
 
 
 

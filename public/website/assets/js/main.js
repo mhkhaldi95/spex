@@ -224,9 +224,9 @@
                 var oldValue = $button.parent().find('input').val();
                 if ($button.hasClass('inc')) {
                     var stock = parseInt($button.parent().find('input').data('product-stoke'))
-                    console.log(stock)
+                    var stock_type = $button.parent().find('input').data('product-stoke-type')
                     var newVal = 0;
-                    if((parseInt(oldValue) + 1) > stock){
+                    if((parseInt(oldValue) + 1) > stock && stock_type == 'in'){
                          newVal = stock;
                         toastr.warning("Out of Stoke");
                     }else{
