@@ -113,7 +113,10 @@ class OrderController extends Controller
             $emails = User::query()->whereIn('role',[Enum::ADMIN,Enum::SUPER_ADMIN])->pluck('email')->toArray();
             Mail::to($emails)->send(new OrderEmail(auth()->user(),$order));
             DB::commit();
-            return  $this->returnBackWithSaveDone();
+            return   redirect()->route('site.myaccount')->with([
+                'message' => 'Save Done',
+                'alert-type' => 'success'
+            ]);
         } catch (QueryException $exception) {
             return $this->invalidIntParameter();
         }
