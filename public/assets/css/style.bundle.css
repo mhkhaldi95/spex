@@ -47491,13 +47491,13 @@ display: none
 
 @media (max-width: 992px) {
     .svg-icon.svg-icon-1 svg{
-        fill: #d6d8d9 !important;
-        color: #d6d8d9 !important;
+        fill: #ECEFF0 !important;
+        color: #ECEFF0 !important;
     }
 }
 
-*{
-    text-transform: capitalize;
+*:not(input) {
+    text-transform: capitalize !important;
 }
 
 table#datatable * {

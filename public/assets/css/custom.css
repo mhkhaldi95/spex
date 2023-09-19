@@ -40,7 +40,7 @@
     height: 100%;
 }
 .ql-toolbar.ql-snow + .ql-container.ql-snow{
-    height: auto; !important;
+    height: auto !important;
 }
 .trip-index .table.table-row-dashed tr{
     border-bottom-width: 4px !important;
@@ -65,7 +65,7 @@
     margin: 0 30%;
 }
 
-input{
-    text-transform: none !important;
+*:not(input) {
+    text-transform: capitalize !important;
 }
 
