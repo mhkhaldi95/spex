@@ -37,7 +37,7 @@ class OrderUpdateEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('admin@projects.alnukhba.agency', 'Update Order'.$this->order->id),
+            from: new Address('admin@alafaqb2b.com', 'Update Order'.$this->order->id),
             subject: 'Update Order'.$this->order->id,
         );
     }
